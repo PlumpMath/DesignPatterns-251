@@ -41,13 +41,13 @@
     <Compile Include="1_Prototype\PrototypeFigure.cs" />
     <Compile Include="1_Prototype\Rectangle.cs" />
     <Compile Include="1_Prototype\Triangle.cs" />
-    <Compile Include="2___Bridge\Form1.cs">
+    <Compile Include="2_Bridge\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2___Bridge\Form1.Designer.cs">
+    <Compile Include="2_Bridge\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="2___Bridge\Outputter.cs" />
+    <Compile Include="2_Bridge\Outputter.cs" />
     <Compile Include="3_Composite\CompositeFigure.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>
@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="2___Bridge\Form1.resx">
+    <EmbeddedResource Include="2_Bridge\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
