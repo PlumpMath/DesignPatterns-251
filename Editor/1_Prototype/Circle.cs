@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    class Circle : PrototypeFigure
+    class Circle : AFigure
     {
         public Point Center { get; private set; }
         public Double R { get; private set; }
@@ -25,6 +25,12 @@ namespace Editor
         public override Double Perimeter()
         {
             return 2 * Math.PI * R;
+        }
+
+        public override void Show()
+        {
+            Shower.SetMsg();
+            DrawEllipse(Center, R);
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    class CompositeFigure : PrototypeFigure
+    class CompositeFigure : AFigure
     {
-        private List<PrototypeFigure> children = new List<PrototypeFigure>();
+        private List<AFigure> children = new List<AFigure>();
 
         // Constructor
         public CompositeFigure()
@@ -19,7 +19,7 @@ namespace Editor
         public override double Area()
         {
             Double res = 0.0;
-            foreach (PrototypeFigure pf in children)
+            foreach (AFigure pf in children)
             {
                 res += pf.Area();
             }
@@ -28,7 +28,7 @@ namespace Editor
         public override double Perimeter()
         {
             Double res = 0.0;
-            foreach (PrototypeFigure pf in children)
+            foreach (AFigure pf in children)
             {
                 res += pf.Perimeter();
             }
@@ -36,17 +36,17 @@ namespace Editor
         }
 
 
-        public void Add(PrototypeFigure component)
+        public void Add(AFigure component)
         {
-            children.Add(component.Clone());
+            children.Add((AFigure)component.Clone());
         }
 
-        public List<PrototypeFigure> GetChildren()
+        public List<AFigure> GetChildren()
         {
             return children;
         }
 
-        public void Remove(PrototypeFigure component)
+        public void Remove(AFigure component)
         {
             children.Remove(component);
         }
@@ -57,6 +57,14 @@ namespace Editor
         public void Output()
         {
             Outputter.Output(this);
+        }
+
+        public override void Show()
+        {
+            foreach (AFigure pf in children)
+            {
+                pf.Show();
+            }
         }
     }
 }

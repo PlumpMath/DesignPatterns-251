@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    class Rectangle : PrototypeFigure
+    class Rectangle : AFigure
     {
         public Point a1 { get; private set; }
         public Point a2 { get; private set; }
@@ -33,6 +33,11 @@ namespace Editor
             return 
                 Point.DistanceBetween(a1, a2) + Point.DistanceBetween(a2, a3) +
                 Point.DistanceBetween(a3, a4) + Point.DistanceBetween(a4, a1);
+        }
+
+        public override void Show()
+        {
+            DrawPoligon(a1, a2, a3, a4);
         }
     }
 }

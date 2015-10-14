@@ -8,18 +8,18 @@ namespace Editor._1_Prototype
 {
     class FigureCollection
     {
-        private List<PrototypeFigure> figures;
+        private List<AFigure> figures;
 
         public FigureCollection()
         {
-            figures = new List<PrototypeFigure>();
+            figures = new List<AFigure>();
         }
 
-        public void Add(PrototypeFigure figure)
+        public void Add(AFigure figure)
         {
             figures.Add(figure);
         }
-        public PrototypeFigure Get(int index)
+        public AFigure Get(int index)
         {
             if (index < 0 || index > figures.Count)
                 throw new IndexOutOfRangeException("FigureCollection: Get: Wrong ind");
@@ -33,7 +33,7 @@ namespace Editor._1_Prototype
 
             figures.RemoveAt(index);
         }
-        public void Del(PrototypeFigure figure)
+        public void Del(AFigure figure)
         {
             figures.Remove(figure);
         }

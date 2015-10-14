@@ -6,63 +6,31 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    public abstract class PrototypeFigure
+    public abstract class AFigure : IFigure, IShower
     {
+        // IFigure
+        public virtual IFigure Clone()
+        {
+            return (AFigure)this.MemberwiseClone();
+        }
+
         protected String Name;
-        abstract public Double Area();
-        abstract public Double Perimeter();
-
-        public virtual PrototypeFigure Clone()
-        {
-            return (PrototypeFigure)this.MemberwiseClone();
-        }
         public virtual String GetName() { return Name; }
-    }
+        public abstract Double Area();
+        public abstract Double Perimeter();
 
-    public class Point
-    {
-        public double X { get; private set; }
-        public double Y { get; private set; }
-
-        public Point(double x, double y)
+        // IShower
+        protected AShower Shower;
+        public virtual void DrawPoligon(params Point[] Points)  // private
         {
-            this.X = x;
-            this.Y = y;
+            Shower.DrawPoligon(Points);
         }
-
-        public static Point operator *(Point p, double c)
+        public virtual void DrawEllipse(Point Center, Double R)    // private
         {
-            return new Point(c*p.X, c * p.Y);
-        }
-        public static Point operator *(double c, Point p)
-        {
-            return new Point(c * p.X, c * p.Y);
-        }
-        public static Point operator -(Point p1, Point p2)
-        {
-            return new Point(p1.X - p2.X, p1.Y - p2.Y);
+            Shower.DrawEllipse(Center, R);
         }
 
-        public static Double DistanceBetween(Point A, Point B)
-        {
-            return Math.Sqrt((A.X-B.X)* (A.X - B.X)+ (A.Y - B.Y) * (A.Y - B.Y));
-        }
-        public static Double TriangleArea(Point A, Point B, Point C)
-        {
-            Double a = Point.DistanceBetween(B, C);
-            Double b = Point.DistanceBetween(A, C);
-            Double c = Point.DistanceBetween(B, A);
-            Double p = (a + b + c) / 2.0;
-
-            Double tmp = p * (p - a) * (p - b) * (p - c);
-            if (tmp < 0)
-                throw new ArgumentOutOfRangeException("Wrong triangle");
-
-            return Math.Sqrt(tmp);
-        }
-        public override string ToString()
-        {
-            return "(" + X + ";" + Y + ")";
-        }
+        // own
+        public abstract void Show();
     }
 }

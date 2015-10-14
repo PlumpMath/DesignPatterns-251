@@ -10,38 +10,15 @@ namespace Editor
     {
         static void Main(string[] args)
         {
-            //FigureCollection fc = new FigureCollection();
-            //PrototypeFigure pf = new Circle(new Point(0,0), 5);
-            //fc.Add(new Circle(new Point(0, 0), 5));
-            //fc.Add(new Rectangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1)));
-            //fc.Add(new Triangle(new Point(-1,-1), new Point(0, 1), new Point(1, -1)));
-            //fc.Add(new Circle(new Point(0, 0), 5));
-            //fc.Add(pf);
-            //PrototypeFigure pf1 = pf.Clone();
-            //fc.Add(pf1);
-            //fc.Add(new Circle(new Point(0, 0), 5));
-            //fc.Add(new Rectangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1)));
-
-            //fc.Del(new Circle(new Point(0, 0), 5));
-            //fc.Del(pf);
-            //fc.Del(pf);
-
-            // 2
-            //OutputterAbstraction ab = new RefinedAbstraction();
-            //ab.Outputter = new ConsoleOutputter();
-            //ab.Output();
-            //ab.Outputter = new WindowOutputter();
-            //ab.Output();
-
-            PrototypeFigure pfc1 = new Circle(new Point(-1, -1), 50);
-            PrototypeFigure pfc2 = new Circle(new Point(1, -1), 75);
-            PrototypeFigure pfc3 = new Circle(new Point(1, -1), 100);
-            PrototypeFigure pfr1 = new Rectangle(new Point(-100, -100), new Point(-100, 100), new Point(100, 100), new Point(100, -100));
-            PrototypeFigure pfr2 = new Rectangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            PrototypeFigure pfr3 = new Rectangle(new Point(-3, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            PrototypeFigure pft1 = new Triangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1));
-            PrototypeFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
-            PrototypeFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
+            AFigure pfc1 = new Circle(new Point(-1, -1), 50);
+            AFigure pfc2 = new Circle(new Point(1, -1), 75);
+            AFigure pfc3 = new Circle(new Point(1, -1), 100);
+            AFigure pfr1 = new Rectangle(new Point(-100, -100), new Point(-100, 100), new Point(100, 100), new Point(100, -100));
+            AFigure pfr2 = new Rectangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
+            AFigure pfr3 = new Rectangle(new Point(-3, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
+            AFigure pft1 = new Triangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1));
+            AFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
+            AFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
 
             // 3
             // Create a tree structure

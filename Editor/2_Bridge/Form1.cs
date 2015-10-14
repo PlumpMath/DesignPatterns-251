@@ -36,9 +36,9 @@ namespace Editor
             PointF screenMid = new PointF(this.Width / 2.0f, this.Height /  2.0f);
             Pen pen = new Pen(Brushes.Black);
 
-            List<PrototypeFigure> childrens = cf.GetChildren();
+            List<AFigure> childrens = cf.GetChildren();
 
-            foreach (PrototypeFigure pf in childrens)
+            foreach (AFigure pf in childrens)
             {
                 switch (pf.GetType().ToString())
                 {

@@ -4,24 +4,6 @@ using System.Windows.Forms;
 
 namespace Editor
 {
-    //class OutputterAbstraction
-    //{
-    //    // Property
-    //    public Implementor Outputter { get; set; }
-
-    //    public virtual void Output()
-    //    {
-    //        Outputter.Output();
-    //    }
-    //}
-    //class RefinedAbstraction : OutputterAbstraction
-    //{
-    //    public override void Output()
-    //    {
-    //        Outputter.Output();
-    //    }
-    //}
-
     abstract class Implementor
     {
         public abstract void Output(CompositeFigure cf);
@@ -34,10 +16,10 @@ namespace Editor
         }
         private void Output(CompositeFigure cf, int lvl)
         {
-            List<PrototypeFigure> childrens = cf.GetChildren();
+            List<AFigure> childrens = cf.GetChildren();
             Console.WriteLine(childrens.Count + " childs :");
 
-            foreach (PrototypeFigure pf in childrens)
+            foreach (AFigure pf in childrens)
             {
                 String common = (new String('-', 2*lvl)) + pf.GetName() + ": P=" + pf.Perimeter() + ", S=" + pf.Area() + " : ";
                 Console.Write(common);
