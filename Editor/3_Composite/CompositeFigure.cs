@@ -53,7 +53,8 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            Console.WriteLine(new String('-', lvl * 2) + Name + " : P=,S=");
+            DrawText(new String('-', lvl * 2) + Name + " : P=,S=");
+
             foreach (AFigure pf in children)
             {
                 pf.Show(lvl + 1);

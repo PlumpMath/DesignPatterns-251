@@ -40,12 +40,6 @@ namespace Editor
             root.Add(comp1);
             root.Add(pfc3);
 
-            //root.Outputter = new ConsoleOutputter();
-            //root.Output();
-
-            //root.Outputter = new WindowOutputter(0, 50);
-            //root.Output();
-
             root.SetShower(new ConsoleShower());
             root.Show();
 

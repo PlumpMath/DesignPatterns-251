@@ -9,6 +9,7 @@ namespace Editor
         // IShower
         public abstract void DrawEllipse(Point Center, Double R);
         public abstract void DrawPoligon(params Point[] Points);
+        public abstract void DrawText(String text);
         public abstract void EndShow();
 
         // own
@@ -25,13 +26,17 @@ namespace Editor
         public override void DrawPoligon(params Point[] Points)
         {
             Console.Write(msg + " : points=");
-            for (int i=0; i<Points.Length; i++)
+            for (int i = 0; i < Points.Length; i++)
             {
                 Console.Write(Points[i].ToString());
                 if (i != Points.Length - 1)
                     Console.Write(",");
             }
             Console.WriteLine();
+        }
+        public override void DrawText(String text)
+        {
+            Console.WriteLine(text);
         }
 
         public override void EndShow() { }
@@ -79,6 +84,7 @@ namespace Editor
 
             g.DrawPolygon(pen, arr);
         }
+        public override void DrawText(String text) { }
 
         public override void EndShow()
         {

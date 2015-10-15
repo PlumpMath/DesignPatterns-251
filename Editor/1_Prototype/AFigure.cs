@@ -29,6 +29,10 @@ namespace Editor
         {
             Shower.DrawEllipse(Center, R);
         }
+        public virtual void DrawText(String text)
+        {
+            Shower.DrawText(text);
+        }
         public virtual void EndShow()
         {
             Shower.EndShow();
