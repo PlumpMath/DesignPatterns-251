@@ -51,19 +51,25 @@ namespace Editor
             children.Remove(component);
         }
 
-        // 2
-        // Property
-        public Implementor Outputter { get; set; }
-        public void Output()
+        public override void Show(int lvl = 0)
         {
-            Outputter.Output(this);
-        }
-
-        public override void Show()
-        {
+            Console.WriteLine(new String('-', lvl * 2) + Name + " : P=,S=");
             foreach (AFigure pf in children)
             {
-                pf.Show();
+                pf.Show(lvl + 1);
+            }
+
+            if (lvl == 0)
+                EndShow();
+        }
+
+        public override void SetShower(AShower shower)
+        {
+            base.SetShower(shower);
+
+            foreach (AFigure pf in children)
+            {
+                pf.SetShower(shower);
             }
         }
     }

@@ -18,5 +18,7 @@ namespace Editor
     {
         void DrawPoligon(params Point[] Points);
         void DrawEllipse(Point Center, Double R);
+
+        void EndShow();
     }
 }

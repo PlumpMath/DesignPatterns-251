@@ -29,8 +29,13 @@ namespace Editor
         {
             Shower.DrawEllipse(Center, R);
         }
+        public virtual void EndShow()
+        {
+            Shower.EndShow();
+        }
 
         // own
-        public abstract void Show();
+        public virtual void SetShower(AShower shower) { this.Shower = shower; }
+        public abstract void Show(int lvl);
     }
 }

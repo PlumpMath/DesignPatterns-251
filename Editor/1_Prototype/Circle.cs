@@ -27,9 +27,9 @@ namespace Editor
             return 2 * Math.PI * R;
         }
 
-        public override void Show()
+        public override void Show(int lvl)
         {
-            Shower.SetMsg();
+            Shower.SetMsg(new String('-', lvl * 2) + Name + " : P=,S=");
             DrawEllipse(Center, R);
         }
     }
