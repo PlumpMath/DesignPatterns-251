@@ -49,7 +49,7 @@ namespace Editor
             root.SetShower(new ConsoleShower());
             root.Show();
 
-            root.SetShower(new WindowShower(0, 50));
+            root.SetShower(new WindowShower(0, 200));
             root.Show();
         }
     }

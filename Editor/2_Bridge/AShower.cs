@@ -75,7 +75,7 @@ namespace Editor
         public override void DrawPoligon(params Point[] Points)
         {
             PointF[] arr = new PointF[Points.Length];
-            for (int i = 0; i < Points.Length; i++) arr[i] = convert(Points[i]);
+            for (int i = 0; i < Points.Length; i++) arr[i] = getCoords(Points[i]);
 
             g.DrawPolygon(pen, arr);
         }
