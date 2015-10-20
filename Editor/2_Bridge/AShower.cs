@@ -15,6 +15,12 @@ namespace Editor
         // own
         protected String msg;
         public virtual void SetMsg(String msg) { this.msg = msg; }
+
+        //protected DecoratorParams DPs;
+        //public void IShower_SetDecoratorParams(DecoratorParams DPs)
+        //{
+        //    this.DPs = DPs;
+        //}
     }
 
     public class ConsoleShower : AShower

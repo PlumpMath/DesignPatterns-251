@@ -21,5 +21,7 @@ namespace Editor
         void DrawText(String text);
 
         void EndShow();
+
+        //void IShower_SetDecoratorParams(DecoratorParams DPs);
     }
 }

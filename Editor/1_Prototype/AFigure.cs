@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    public abstract class AFigure : IFigure, IShower
+    public abstract class AFigure : IFigure, IShower//, IDecorator
     {
+        public AFigure()
+        {
+            //this.DPs = new DecoratorParams();
+        }
+
         // IFigure
         public virtual IFigure Clone()
         {
@@ -37,9 +42,18 @@ namespace Editor
         {
             Shower.EndShow();
         }
+        //protected DecoratorParams DPs;
+        //public void IShower_SetDecoratorParams(DecoratorParams DPs)
+        //{
+        //    Shower.IShower_SetDecoratorParams(DPs);
+        //}
 
         // own
         public virtual void SetShower(AShower shower) { this.Shower = shower; }
-        public abstract void Show(int lvl);
+        public abstract void Show(int lvl = 0);
+        //public void SetDecoratorParams(DecoratorParams DPs)
+        //{
+        //    this.DPs = DPs;
+        //}
     }
 }

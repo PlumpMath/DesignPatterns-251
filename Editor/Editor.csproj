@@ -50,6 +50,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="3_Composite\CompositeFigure.cs" />
+    <Compile Include="4_Decorator\DecoratorParams.cs" />
+    <Compile Include="4_Decorator\Decorators.cs" />
+    <Compile Include="4_Decorator\IDecorator.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>
   <ItemGroup>

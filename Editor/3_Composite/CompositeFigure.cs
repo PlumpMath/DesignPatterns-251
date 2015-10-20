@@ -53,6 +53,8 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
+            //SetDecoratorParams(DPs);
+
             DrawText(new String('-', lvl * 2) + Name + " : P=,S=");
 
             foreach (AFigure pf in children)
