@@ -6,15 +6,12 @@ namespace Editor
 {
     public abstract class AShower : IShower
     {
-        // IShower
+        #region IShower
         public abstract void DrawEllipse(Point Center, Double R);
         public abstract void DrawPoligon(params Point[] Points);
         public abstract void DrawText(String text);
         public abstract void EndShow();
-
-        // own
-        protected String msg;
-        public virtual void SetMsg(String msg) { this.msg = msg; }
+        #endregion
 
         //protected DecoratorParams DPs;
         //public void IShower_SetDecoratorParams(DecoratorParams DPs)
@@ -27,11 +24,11 @@ namespace Editor
     {
         public override void DrawEllipse(Point Center, double R)
         {
-            Console.WriteLine(msg + " : center=" + Center.ToString() + " , R=" + R);
+            Console.WriteLine(" : center=" + Center.ToString() + " , R=" + R);
         }
         public override void DrawPoligon(params Point[] Points)
         {
-            Console.Write(msg + " : points=");
+            Console.Write(" : points=");
             for (int i = 0; i < Points.Length; i++)
             {
                 Console.Write(Points[i].ToString());
@@ -42,10 +39,13 @@ namespace Editor
         }
         public override void DrawText(String text)
         {
-            Console.WriteLine(text);
+            Console.Write(text);
         }
 
-        public override void EndShow() { }
+        public override void EndShow()
+        {
+            Console.WriteLine("Done!");
+        }
     }
     public class WindowShower : AShower
     {

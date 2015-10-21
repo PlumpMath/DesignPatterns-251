@@ -10,15 +10,15 @@ namespace Editor
     {
         static void Main(string[] args)
         {
-            AFigure pfc1 = new Circle(new Point(-1, -1), 50);
-            AFigure pfc2 = new Circle(new Point(1, -1), 75);
-            AFigure pfc3 = new Circle(new Point(1, -1), 100);
-            AFigure pfr1 = new Rectangle(new Point(-100, -100), new Point(-100, 100), new Point(100, 100), new Point(100, -100));
-            AFigure pfr2 = new Rectangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            AFigure pfr3 = new Rectangle(new Point(-3, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            AFigure pft1 = new Triangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1));
-            AFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
-            AFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
+            IFigure pfc1 = new Circle(new Point(-1, -1), 50);
+            IFigure pfc2 = new Circle(new Point(1, -1), 75);
+            IFigure pfc3 = new Circle(new Point(1, -1), 100);
+            IFigure pfr1 = new Rectangle(new Point(-100, -100), new Point(-100, 100), new Point(100, 100), new Point(100, -100));
+            IFigure pfr2 = new Rectangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
+            IFigure pfr3 = new Rectangle(new Point(-3, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
+            IFigure pft1 = new Triangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1));
+            IFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
+            IFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
 
             // 3
             // Create a tree structure

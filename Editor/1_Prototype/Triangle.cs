@@ -14,7 +14,7 @@ namespace Editor
 
         public Triangle(Point a1, Point a2, Point a3)
         {
-            this.Name = "Triangle";
+            SetName("Triangle");
             this.a1 = a1;
             this.a2 = a2;
             this.a3 = a3;
@@ -35,7 +35,7 @@ namespace Editor
 
         public override void Show(int lvl)
         {
-            Shower.SetMsg(new String('-', lvl * 2) + Name + " : P=,S=");
+            DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
             DrawPoligon(a1, a2, a3);
         }
     }

@@ -13,6 +13,9 @@ namespace Editor
         String GetName();
         Double Area();
         Double Perimeter();
+
+        void SetShower(AShower shower);
+        void Show(int lvl = 0);
     }
     public interface IShower
     {
@@ -21,7 +24,5 @@ namespace Editor
         void DrawText(String text);
 
         void EndShow();
-
-        //void IShower_SetDecoratorParams(DecoratorParams DPs);
     }
 }

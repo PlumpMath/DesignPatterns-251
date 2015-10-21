@@ -13,7 +13,7 @@ namespace Editor
 
         public Circle(Point center, Double r)
         {
-            this.Name = "Circle";
+            SetName("Circle");
             this.Center = center;
             this.R = r;
         }
@@ -29,7 +29,7 @@ namespace Editor
 
         public override void Show(int lvl)
         {
-            Shower.SetMsg(new String('-', lvl * 2) + Name + " : P=,S=");
+            DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
             DrawEllipse(Center, R);
         }
     }

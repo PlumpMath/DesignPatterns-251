@@ -8,18 +8,18 @@ namespace Editor
 {
     class CompositeFigure : AFigure
     {
-        private List<AFigure> children = new List<AFigure>();
+        private List<IFigure> children = new List<IFigure>();
 
         // Constructor
         public CompositeFigure()
         {
-            this.Name = "CompositeFigure";
+            SetName("CompositeFigure");
         }
 
         public override double Area()
         {
             Double res = 0.0;
-            foreach (AFigure pf in children)
+            foreach (IFigure pf in children)
             {
                 res += pf.Area();
             }
@@ -28,7 +28,7 @@ namespace Editor
         public override double Perimeter()
         {
             Double res = 0.0;
-            foreach (AFigure pf in children)
+            foreach (IFigure pf in children)
             {
                 res += pf.Perimeter();
             }
@@ -36,17 +36,17 @@ namespace Editor
         }
 
 
-        public void Add(AFigure component)
+        public void Add(IFigure component)
         {
             children.Add((AFigure)component.Clone());
         }
 
-        public List<AFigure> GetChildren()
+        public List<IFigure> GetChildren()
         {
             return children;
         }
 
-        public void Remove(AFigure component)
+        public void Remove(IFigure component)
         {
             children.Remove(component);
         }
@@ -55,9 +55,9 @@ namespace Editor
         {
             //SetDecoratorParams(DPs);
 
-            DrawText(new String('-', lvl * 2) + Name + " : P=,S=");
+            DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=" + Environment.NewLine);
 
-            foreach (AFigure pf in children)
+            foreach (IFigure pf in children)
             {
                 pf.Show(lvl + 1);
             }
@@ -70,7 +70,7 @@ namespace Editor
         {
             base.SetShower(shower);
 
-            foreach (AFigure pf in children)
+            foreach (IFigure pf in children)
             {
                 pf.SetShower(shower);
             }
