@@ -12,12 +12,6 @@ namespace Editor
         public abstract void DrawText(String text);
         public abstract void EndShow();
         #endregion
-
-        //protected DecoratorParams DPs;
-        //public void IShower_SetDecoratorParams(DecoratorParams DPs)
-        //{
-        //    this.DPs = DPs;
-        //}
     }
 
     public class ConsoleShower : AShower

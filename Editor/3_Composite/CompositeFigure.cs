@@ -66,7 +66,7 @@ namespace Editor
                 EndShow();
         }
 
-        public override void SetShower(AShower shower)
+        public override void SetShower(IShower shower)
         {
             base.SetShower(shower);
 

@@ -38,7 +38,7 @@
   <ItemGroup>
     <Compile Include="0_AdditionalClasses\Point.cs" />
     <Compile Include="1_Prototype\Circle.cs" />
-    <Compile Include="1_Prototype\Interfaces.cs" />
+    <Compile Include="1_Prototype\IFigure.cs" />
     <Compile Include="1_Prototype\AFigure.cs" />
     <Compile Include="1_Prototype\Rectangle.cs" />
     <Compile Include="1_Prototype\Triangle.cs" />
@@ -49,9 +49,10 @@
     <Compile Include="2_Bridge\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="2_Bridge\IShower.cs" />
     <Compile Include="3_Composite\CompositeFigure.cs" />
     <Compile Include="4_Decorator\DecoratorParams.cs" />
-    <Compile Include="4_Decorator\Decorators.cs" />
+    <Compile Include="4_Decorator\ShadowDecorator.cs" />
     <Compile Include="4_Decorator\IDecorator.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>

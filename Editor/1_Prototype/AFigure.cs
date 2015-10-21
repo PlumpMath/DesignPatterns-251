@@ -20,12 +20,12 @@ namespace Editor
         public abstract Double Area();
         public abstract Double Perimeter();
 
-        public virtual void SetShower(AShower shower) { this.Shower = shower; }     // overrided in CompositeFigure
+        public virtual void SetShower(IShower shower) { this.Shower = shower; }     // overrided in CompositeFigure
         public abstract void Show(int lvl);
         #endregion
 
         #region for Shower
-        private AShower Shower;
+        private IShower Shower;
         protected void DrawPoligon(params Point[] Points) { Shower.DrawPoligon(Points); }
         protected void DrawEllipse(Point Center, Double R) { Shower.DrawEllipse(Center, R); }
         protected void DrawText(String text) { Shower.DrawText(text); }
