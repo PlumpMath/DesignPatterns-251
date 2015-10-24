@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    public abstract class AFigure : IFigure//, IShower//, IDecorator
+    public abstract class AFigure : IFigure //, IShower//, IDecorator
     {
         #region IFigure
         public virtual IFigure Clone()

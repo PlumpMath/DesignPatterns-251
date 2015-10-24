@@ -50,9 +50,8 @@ namespace Editor
             */
 
             // 4
-            DecoratedFigure df = new DecoratedFigure(pft3);
+            ADecorator df = new ADecorator(pft3);
 
-            df = new ShadowDecorator(df);
 
             df.SetShower(new WindowShower(0, 200));
             df.Show();
