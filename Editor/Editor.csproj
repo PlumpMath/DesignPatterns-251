@@ -51,9 +51,9 @@
     </Compile>
     <Compile Include="2_Bridge\IShower.cs" />
     <Compile Include="3_Composite\CompositeFigure.cs" />
-    <Compile Include="4_Decorator\DecoratorParams.cs" />
+    <Compile Include="4_Decorator\DecoratedFigure.cs" />
+    <Compile Include="4_Decorator\IFigureIShower.cs" />
     <Compile Include="4_Decorator\ShadowDecorator.cs" />
-    <Compile Include="4_Decorator\IDecorator.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>
   <ItemGroup>

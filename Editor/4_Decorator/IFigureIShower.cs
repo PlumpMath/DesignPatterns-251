@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Editor._4
+namespace Editor
 {
-    public interface IDecorator
+    interface IFigureIShower : IFigure, IShower
     {
-        void Show(int lvl);
-        void SetDecoratorParams(DecoratorParams DPs);
     }
 }

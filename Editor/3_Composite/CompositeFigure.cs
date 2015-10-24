@@ -40,7 +40,6 @@ namespace Editor
         {
             children.Add((AFigure)component.Clone());
         }
-
         public List<IFigure> GetChildren()
         {
             return children;
