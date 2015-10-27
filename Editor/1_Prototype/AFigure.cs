@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    public abstract class AFigure : IFigure //, IShower//, IDecorator
+    public abstract class AFigure : IFigure
     {
         #region IFigure
         public virtual IFigure Clone()
@@ -20,6 +20,9 @@ namespace Editor
         public abstract Double Area();
         public abstract Double Perimeter();
 
+        public abstract void MoveTo(Point x);
+        public abstract void MoveOn(Point dx);
+
         public virtual void SetShower(IShower shower) { this.Shower = shower; }     // overrided in CompositeFigure
         public abstract void Show(int lvl);
         #endregion
@@ -31,11 +34,5 @@ namespace Editor
         protected void DrawText(String text) { Shower.DrawText(text); }
         protected void EndShow() { Shower.EndShow(); }
         #endregion
-
-        // own
-        //public void SetDecoratorParams(DecoratorParams DPs)
-        //{
-        //    this.DPs = DPs;
-        //}
     }
 }

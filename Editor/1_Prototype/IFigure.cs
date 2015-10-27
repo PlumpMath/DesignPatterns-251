@@ -14,6 +14,9 @@ namespace Editor
         Double Area();
         Double Perimeter();
 
+        void MoveTo(Point x);
+        void MoveOn(Point dx);
+
         // Shower
         void SetShower(IShower shower);
         void Show(int lvl = 0);

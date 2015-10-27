@@ -52,8 +52,6 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            //SetDecoratorParams(DPs);
-
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=" + Environment.NewLine);
 
             foreach (IFigure pf in children)
@@ -72,6 +70,21 @@ namespace Editor
             foreach (IFigure pf in children)
             {
                 pf.SetShower(shower);
+            }
+        }
+
+        public override void MoveTo(Point x)
+        {
+            foreach (IFigure pf in children)
+            {
+                pf.MoveTo(x);
+            }
+        }
+        public override void MoveOn(Point dx)
+        {
+            foreach (IFigure pf in children)
+            {
+                pf.MoveOn(dx);
             }
         }
     }

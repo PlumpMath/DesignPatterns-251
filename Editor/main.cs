@@ -20,7 +20,7 @@ namespace Editor
             IFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
             IFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
 
-            /*
+            /**/
             // 3
             // Create a tree structure
             CompositeFigure root = new CompositeFigure();
@@ -41,21 +41,23 @@ namespace Editor
             root.Add(comp1);
             root.Add(pfc3);
 
+            //root.MoveTo(new Point(250,250));
+
             root.SetShower(new ConsoleShower());
-            //root.Show();
+            root.Show();
 
             root.SetShower(new WindowShower(0, 200));
-            //root.Show();
+            root.Show();
 
-            */
+            /**/
 
             // 4
-            ADecorator df = new ADecorator(pft3);
+            //ADecorator df = new ADecorator(pft3);
 
 
-            df.SetShower(new WindowShower(0, 200));
-            df.Show();
-            df.EndShow();
+            //df.SetShower(new WindowShower(0, 200));
+            //df.Show();
+            //df.EndShow();
         }
     }
 }

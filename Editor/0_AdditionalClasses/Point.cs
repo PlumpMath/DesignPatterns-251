@@ -29,6 +29,14 @@ namespace Editor
         {
             return new Point(p1.X - p2.X, p1.Y - p2.Y);
         }
+        public static Point operator +(Point p1, Point p2)
+        {
+            return new Point(p1.X + p2.X, p1.Y + p2.Y);
+        }
+        public Point Clone()
+        {
+            return new Point(this.X, this.Y);
+        }
 
         public static Double DistanceBetween(Point A, Point B)
         {
@@ -50,6 +58,16 @@ namespace Editor
         public override string ToString()
         {
             return "(" + X + ";" + Y + ")";
+        }
+        public void MoveTo(Point x)
+        {
+            this.X = x.X;
+            this.Y = x.Y;
+        }
+        public void MoveOn(Point dx)
+        {
+            this.X += dx.X;
+            this.Y += dx.Y;
         }
     }
 }

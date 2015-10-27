@@ -38,5 +38,18 @@ namespace Editor
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
             DrawPoligon(a1, a2, a3);
         }
+
+        public override void MoveTo(Point x)
+        {
+            a1.MoveTo(x);
+            a2.MoveTo(x);
+            a3.MoveTo(x);
+        }
+        public override void MoveOn(Point dx)
+        {
+            a1.MoveOn(dx);
+            a2.MoveOn(dx);
+            a3.MoveOn(dx);
+        }
     }
 }

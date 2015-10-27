@@ -32,5 +32,8 @@ namespace Editor
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
             DrawEllipse(Center, R);
         }
+
+        public override void MoveTo(Point x) { Center.MoveTo(x); }
+        public override void MoveOn(Point dx) { Center.MoveOn(dx); }
     }
 }
