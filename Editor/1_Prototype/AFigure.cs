@@ -11,7 +11,7 @@ namespace Editor
         #region IFigure
         public virtual IFigure Clone()
         {
-            return (AFigure)this.MemberwiseClone();
+            return (IFigure)this.MemberwiseClone();
         }
 
         private String Name;
@@ -24,8 +24,7 @@ namespace Editor
         public abstract void MoveOn(Point dx);
 
         public virtual void SetShower(IShower shower) { this.Shower = shower; }     // overrided in CompositeFigure
-        public void Show() { myShow(0); }
-        public abstract void myShow(int lvl);   // public for CompositeFigure
+        public abstract void Show(int lvl = 0);   // public for CompositeFigure
         #endregion
 
         #region for Shower
