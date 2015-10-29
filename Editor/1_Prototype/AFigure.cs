@@ -28,11 +28,24 @@ namespace Editor
         #endregion
 
         #region for Shower
-        private IShower Shower;
+        private IShower _Shower;
+        private IShower Shower
+        {
+            set
+            {
+                _Shower = value;
+            }
+            get
+            {
+                if (_Shower == null) throw new MemberAccessException("do 'SetShower' first");
+                return _Shower;
+            }
+        }
         protected void DrawPoligon(params Point[] Points) { Shower.DrawPoligon(Points); }
         protected void DrawEllipse(Point Center, Double R) { Shower.DrawEllipse(Center, R); }
         protected void DrawText(String text) { Shower.DrawText(text); }
-        public void EndShow() { if (Shower != null) Shower.EndShow(); }
+        public void EndShow() { Shower.EndShow(); }
+        public void SetBrushForShow(System.Drawing.Brush brush) { Shower.SetBrushForShow(brush); }
         #endregion
     }
 }
