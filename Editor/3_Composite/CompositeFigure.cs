@@ -50,17 +50,16 @@ namespace Editor
             children.Remove(component);
         }
 
-        public override void Show(int lvl = 0)
+        public override void myShow(int lvl)
         {
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=" + Environment.NewLine);
 
             foreach (IFigure pf in children)
             {
-                pf.Show(lvl + 1);
+                ((AFigure)pf).myShow(lvl + 1);
             }
 
-            if (lvl == 0)
-                EndShow();
+            //if (lvl == 0) EndShow();
         }
 
         public override void SetShower(IShower shower)

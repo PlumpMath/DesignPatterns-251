@@ -24,7 +24,8 @@ namespace Editor
         public abstract void MoveOn(Point dx);
 
         public virtual void SetShower(IShower shower) { this.Shower = shower; }     // overrided in CompositeFigure
-        public abstract void Show(int lvl);
+        public void Show() { myShow(0); }
+        public abstract void myShow(int lvl);   // public for CompositeFigure
         #endregion
 
         #region for Shower
@@ -32,7 +33,7 @@ namespace Editor
         protected void DrawPoligon(params Point[] Points) { Shower.DrawPoligon(Points); }
         protected void DrawEllipse(Point Center, Double R) { Shower.DrawEllipse(Center, R); }
         protected void DrawText(String text) { Shower.DrawText(text); }
-        protected void EndShow() { Shower.EndShow(); }
+        public void EndShow() { if (Shower != null) Shower.EndShow(); }
         #endregion
     }
 }

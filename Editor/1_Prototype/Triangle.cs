@@ -33,7 +33,7 @@ namespace Editor
                 Point.DistanceBetween(a3, a3);
         }
 
-        public override void Show(int lvl)
+        public override void myShow(int lvl)
         {
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
             DrawPoligon(a1, a2, a3);

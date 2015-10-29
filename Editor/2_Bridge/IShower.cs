@@ -13,5 +13,8 @@ namespace Editor
         void DrawText(String text);
 
         void EndShow();
+
+        // Set params for show()
+        void SetBrushForShow(System.Drawing.Brush brush);
     }
 }

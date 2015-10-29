@@ -19,6 +19,7 @@ namespace Editor
 
         // Shower
         void SetShower(IShower shower);
-        void Show(int lvl = 0);
+        void Show();
+        void EndShow();
     }
 }

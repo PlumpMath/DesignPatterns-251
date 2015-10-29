@@ -27,7 +27,7 @@ namespace Editor
             return 2 * Math.PI * R;
         }
 
-        public override void Show(int lvl)
+        public override void myShow(int lvl)
         {
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
             DrawEllipse(Center, R);

@@ -11,6 +11,9 @@ namespace Editor
         public abstract void DrawPoligon(params Point[] Points);
         public abstract void DrawText(String text);
         public abstract void EndShow();
+
+        // Set params for show()
+        public abstract void SetBrushForShow(Brush brush);
         #endregion
     }
 
@@ -39,6 +42,11 @@ namespace Editor
         public override void EndShow()
         {
             Console.WriteLine("Done!");
+        }
+
+        public override void SetBrushForShow(Brush brush)
+        {
+            Console.Write(brush.ToString());
         }
     }
     public class WindowShower : AShower
@@ -90,6 +98,11 @@ namespace Editor
         {
             f1.Invalidate();
             f1.ShowDialog();
+        }
+
+        public override void SetBrushForShow(Brush brush)
+        {
+            pen = new Pen(brush);
         }
     }
 }

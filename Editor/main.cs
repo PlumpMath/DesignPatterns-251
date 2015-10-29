@@ -45,9 +45,11 @@ namespace Editor
 
             root.SetShower(new ConsoleShower());
             root.Show();
+            root.EndShow();
 
             root.SetShower(new WindowShower(0, 200));
             root.Show();
+            root.EndShow();
 
             /**/
 
