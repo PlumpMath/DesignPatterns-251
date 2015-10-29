@@ -52,6 +52,7 @@ namespace Editor
     public class WindowShower : AShower
     {
         private Point formCenter;
+        private Brush brush = Brushes.Black;
         private Pen pen;
         private double transparency;
         private double kScale;
@@ -61,7 +62,7 @@ namespace Editor
         {
             this.transparency = transparency;
             this.kScale = scale / 100.0;
-            this.pen = new Pen(Brushes.Black);
+            this.pen = new Pen(brush);
             f1 = new Form1();
             g = Graphics.FromImage(f1.bmp);
             this.formCenter = new Point(f1.bmp.Width / 2.0, f1.bmp.Height / 2.0);
@@ -83,14 +84,16 @@ namespace Editor
             PointF EllipseCenter = getCoords(Center);
             PointF p123 = convert(convert(EllipseCenter) - (new Point(r,r)));
 
-            g.DrawEllipse(pen, new RectangleF(p123, size));
+            //g.DrawEllipse(pen, new RectangleF(p123, size));
+            g.FillEllipse(brush, new RectangleF(p123, size));
         }
         public override void DrawPoligon(params Point[] Points)
         {
             PointF[] arr = new PointF[Points.Length];
             for (int i = 0; i < Points.Length; i++) arr[i] = getCoords(Points[i]);
 
-            g.DrawPolygon(pen, arr);
+            //g.DrawPolygon(pen, arr);
+            g.FillPolygon(brush, arr);
         }
         public override void DrawText(String text) { }
 
@@ -102,6 +105,7 @@ namespace Editor
 
         public override void SetBrushForShow(Brush brush)
         {
+            this.brush = brush;
             pen = new Pen(brush);
         }
     }

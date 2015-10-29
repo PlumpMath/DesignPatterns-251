@@ -23,43 +23,53 @@ namespace Editor
             /**/
             // 3
             // Create a tree structure
-            CompositeFigure root = new CompositeFigure();
+            //CompositeFigure root = new CompositeFigure();
 
-            root.Add(pfc1);
-            root.Add(pfc2);
+            //root.Add(pfc1);
+            //root.Add(pfc2);
 
-            CompositeFigure comp1 = new CompositeFigure();
-            comp1.Add(pfr1);
-            comp1.Add(pfr2);
+            //CompositeFigure comp1 = new CompositeFigure();
+            //comp1.Add(pfr1);
+            //comp1.Add(pfr2);
 
-            CompositeFigure comp2 = new CompositeFigure();
-            comp2.Add(pfc3);
-            comp2.Add(pfr3);
-            comp2.Add(pft3);
-            comp1.Add(comp2);
+            //CompositeFigure comp2 = new CompositeFigure();
+            //comp2.Add(pfc3);
+            //comp2.Add(pfr3);
+            //comp2.Add(pft3);
+            //comp1.Add(comp2);
 
-            root.Add(comp1);
-            root.Add(pfc3);
+            //root.Add(comp1);
+            //root.Add(pfc3);
 
-            //root.MoveTo(new Point(250,250));
+            //root.SetShower(new ConsoleShower());
+            //root.Show();
+            //root.EndShow();
 
-            root.SetShower(new ConsoleShower());
-            root.Show();
-            root.EndShow();
-
-            root.SetShower(new WindowShower(0, 200));
-            root.Show();
-            root.EndShow();
+            //root.SetShower(new WindowShower(0, 200));
+            //root.Show();
+            //root.EndShow();
 
             /**/
 
             // 4
-            //ADecorator df = new ADecorator(pft3);
+            CompositeFigure root = new CompositeFigure();
+            root.Add(new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0)));
+            root.Add(new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90)));
+            root.Add(new Circle(new Point(70, 70), 30));
 
+            //IFigure IFSD = new Triangle(new Point(-40, -40), new Point(40, -40), new Point(0, 40));
+            IFigure IFSD = new ShadowDecorator(root);
+            IFSD = new ShadowDecorator(IFSD);
+            IFSD = new ShadowDecorator(IFSD);
+            IFSD = new ShadowDecorator(IFSD);
+            IFSD = new ShadowDecorator(IFSD);
+            IFSD = new ShadowDecorator(IFSD);
+            IFSD = new RemoveLastPropertyDecorator(IFSD);
+            IFSD = new RemoveLastPropertyDecorator(IFSD);
 
-            //df.SetShower(new WindowShower(0, 200));
-            //df.Show();
-            //df.EndShow();
+            IFSD.SetShower(new WindowShower(0, 200));
+            IFSD.Show();
+            IFSD.EndShow();
         }
     }
 }
