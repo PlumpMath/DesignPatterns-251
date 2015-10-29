@@ -51,6 +51,8 @@
     </Compile>
     <Compile Include="2_Bridge\IShower.cs" />
     <Compile Include="3_Composite\CompositeFigure.cs" />
+    <Compile Include="4_Decorator\ADecorator.cs" />
+    <Compile Include="4_Decorator\IDecorator.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +67,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

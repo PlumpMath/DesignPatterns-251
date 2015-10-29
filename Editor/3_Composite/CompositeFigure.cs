@@ -38,28 +38,21 @@ namespace Editor
 
         public void Add(IFigure component)
         {
-            children.Add((AFigure)component.Clone());
+            children.Add(component.Clone());
         }
-        public List<IFigure> GetChildren()
-        {
-            return children;
-        }
-
         public void Remove(IFigure component)
         {
             children.Remove(component);
         }
 
-        public override void myShow(int lvl)
+        public override void Show(int lvl = 0)
         {
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=" + Environment.NewLine);
 
             foreach (IFigure pf in children)
             {
-                ((AFigure)pf).myShow(lvl + 1);
+                pf.Show(lvl + 1);
             }
-
-            //if (lvl == 0) EndShow();
         }
 
         public override void SetShower(IShower shower)
