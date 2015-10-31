@@ -21,5 +21,10 @@ namespace Editor
         void SetShower(IShower shower);
         void Show(int lvl = 0);
         void EndShow();
+
+        // Decorator
+        Point[] GetBorder();
+        void ShowShadow(IShower shower, Point dx);
+        void ShowBorder(IShower shower);
     }
 }

@@ -8,52 +8,79 @@ namespace Editor
 {
     class Rectangle : AFigure
     {
-        public Point a1 { get; private set; }
-        public Point a2 { get; private set; }
-        public Point a3 { get; private set; }
-        public Point a4 { get; private set; }
+        private Point[] points;
 
         public Rectangle(Point a1, Point a2, Point a3, Point a4)
         {
             SetName("Rectangle");
-            this.a1 = a1;
-            this.a2 = a2;
-            this.a3 = a3;
-            this.a4 = a4;
+
+            points = new Point[4];
+            points[0] = a1;
+            points[1] = a2;
+            points[2] = a3;
+            points[3] = a4;
         }
 
         public override double Area()
         {
             return
-                Point.TriangleArea(a1, a2, a3) +
-                Point.TriangleArea(a1, a4, a3);
+                Point.TriangleArea(points[0], points[1], points[2]) +
+                Point.TriangleArea(points[0], points[3], points[2]);
         }
         public override double Perimeter()
         {
             return 
-                Point.DistanceBetween(a1, a2) + Point.DistanceBetween(a2, a3) +
-                Point.DistanceBetween(a3, a4) + Point.DistanceBetween(a4, a1);
+                Point.DistanceBetween(points[0], points[1]) + Point.DistanceBetween(points[1], points[2]) +
+                Point.DistanceBetween(points[2], points[3]) + Point.DistanceBetween(points[3], points[0]);
         }
 
         public override void Show(int lvl = 0)
         {
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
-            DrawPoligon(a1, a2, a3, a4);
+            DrawPoligon(points);
         }
 
         public override void MoveTo(Point x)
         {
-            a1.MoveTo(x);
-            a2.MoveTo(x);
-            a3.MoveTo(x);
-            a4.MoveTo(x);
+            foreach (Point p in points)
+                p.MoveTo(x);
         }
         public override void MoveOn(Point dx)
         {
-            a1.MoveOn(dx);
-            a2.MoveOn(dx);
-            a3.MoveOn(dx);
-            a4.MoveOn(dx);
+            foreach (Point p in points)
+                p.MoveOn(dx);
+        }
+        public override Point[] GetBorder()
+        {
+            double minX = points[0].X, maxX = points[0].X;
+            double minY = points[0].Y, maxY = points[0].Y;
+
+            foreach (Point p in points)
+            {
+                if (p.X < minX) minX = p.X;
+                if (p.X > maxX) maxX = p.X;
+                if (p.Y < minY) minY = p.Y;
+                if (p.Y > maxY) maxY = p.Y;
+            }
+
+            return new Point[2] { new Point(minX, minY), new Point(maxX, maxY) };
+        }
+        public override void ShowShadow(IShower shower, Point dx)
+        {
+            Point[] poligon = new Point[points.Length];
+            for (int i = 0; i < points.Length; i++)
+                poligon[i] = points[i] + dx;
+            DrawPoligon(shower, poligon);
+        }
+        public override void ShowBorder(IShower shower)
+        {
+            Point[] border = GetBorder();
+            Point[] poligon = new Point[4];
+            poligon[0] = new Point(border[0].X, border[0].Y);
+            poligon[1] = new Point(border[0].X, border[1].Y);
+            poligon[2] = new Point(border[1].X, border[1].Y);
+            poligon[3] = new Point(border[1].X, border[0].Y);
+            DrawPoligon(shower, poligon);
         }
     }
 }
