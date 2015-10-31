@@ -110,13 +110,17 @@ namespace Editor
 
             return new Point[2] { new Point(minX, minY), new Point(maxX, maxY) };
         }
-        public override void ShowShadow(IShower shower, Point dx)
+        public override void ShowShadow(int lvl, IShower shower, Point dx)
         {
+            DrawText(new String('+', lvl * 2) + "shadow CompositeFigure" + Environment.NewLine);
+
             foreach (IFigure f in children)
-                f.ShowShadow(shower, dx);
+                f.ShowShadow(lvl, shower, dx);
         }
-        public override void ShowBorder(IShower shower)
+        public override void ShowBorder(int lvl, IShower shower)
         {
+            DrawText(new String('+', lvl * 2) + "border CompositeFigure" + Environment.NewLine);
+
             Point[] border = GetBorder();
             Point[] poligon = new Point[4];
             poligon[0] = new Point(border[0].X, border[0].Y);
