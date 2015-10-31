@@ -69,6 +69,9 @@ namespace Editor
             IFSD = new BorderDecorator(IFSD);
             IFSD = new RemoveLastPropertyDecorator(IFSD);
 
+            IFSD.SetShower(new ConsoleShower());
+            IFSD.Show();
+
             IFSD.SetShower(new WindowShower(0, 200));
             IFSD.Show();
             IFSD.EndShow();

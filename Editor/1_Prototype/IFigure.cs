@@ -24,7 +24,7 @@ namespace Editor
 
         // Decorator
         Point[] GetBorder();
-        void ShowShadow(IShower shower, Point dx);
-        void ShowBorder(IShower shower);
+        void ShowShadow(int lvl, IShower shower, Point dx);
+        void ShowBorder(int lvl, IShower shower);
     }
 }

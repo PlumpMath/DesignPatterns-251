@@ -46,7 +46,7 @@ namespace Editor
 
         public override void SetBrushForShow(Brush brush)
         {
-            Console.Write(brush.ToString());
+            //Console.Write(brush.ToString());
         }
     }
     public class WindowShower : AShower

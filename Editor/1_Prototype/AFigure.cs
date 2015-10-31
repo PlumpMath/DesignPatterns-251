@@ -52,8 +52,8 @@ namespace Editor
 
         #region for Decorator
         public abstract Point[] GetBorder();
-        public abstract void ShowShadow(IShower shower, Point dx);
-        public abstract void ShowBorder(IShower shower);
+        public abstract void ShowShadow(int lvl, IShower shower, Point dx);
+        public abstract void ShowBorder(int lvl, IShower shower);
         #endregion
     }
 }

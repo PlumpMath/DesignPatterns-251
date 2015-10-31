@@ -43,13 +43,17 @@ namespace Editor
             res[1] = new Point(Center.X + R, Center.Y + R);
             return res;
         }
-        public override void ShowShadow(IShower shower, Point dx)
+        public override void ShowShadow(int lvl, IShower shower, Point dx)
         {
+            DrawText(new String('+', lvl * 2) + "shadow");
+
             Point newCenter = Center + dx;
             DrawEllipse(shower, newCenter, R);
         }
-        public override void ShowBorder(IShower shower)
+        public override void ShowBorder(int lvl, IShower shower)
         {
+            DrawText(new String('+', lvl * 2) + "border");
+
             Point[] border = GetBorder();
             Point[] poligon = new Point[4];
             poligon[0] = new Point(border[0].X, border[0].Y);

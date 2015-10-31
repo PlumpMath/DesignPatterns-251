@@ -64,15 +64,19 @@ namespace Editor
 
             return new Point[2] { new Point(minX, minY), new Point(maxX, maxY) };
         }
-        public override void ShowShadow(IShower shower, Point dx)
+        public override void ShowShadow(int lvl, IShower shower, Point dx)
         {
+            DrawText(new String('+', lvl * 2) + "shadow");
+
             Point[] poligon = new Point[points.Length];
             for (int i = 0; i < points.Length; i++)
                 poligon[i] = points[i] + dx;
             DrawPoligon(shower, poligon);
         }
-        public override void ShowBorder(IShower shower)
+        public override void ShowBorder(int lvl, IShower shower)
         {
+            DrawText(new String('+', lvl * 2) + "border");
+
             Point[] border = GetBorder();
             Point[] poligon = new Point[4];
             poligon[0] = new Point(border[0].X, border[0].Y);

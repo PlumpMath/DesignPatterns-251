@@ -29,8 +29,8 @@ namespace Editor
         }
 
         public override Point[] GetBorder() { return decoratedFigure.GetBorder(); }
-        public override void ShowShadow(IShower shower, Point dx) { decoratedFigure.ShowShadow(shower, dx); }
-        public override void ShowBorder(IShower shower) { decoratedFigure.ShowBorder(shower); }
+        public override void ShowShadow(int lvl, IShower shower, Point dx) { decoratedFigure.ShowShadow(lvl, shower, dx); }
+        public override void ShowBorder(int lvl, IShower shower) { decoratedFigure.ShowBorder(lvl, shower); }
 
         public IFigure RemoveLastDecorator()
         {
@@ -69,13 +69,16 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            Console.WriteLine("ShadowDecorator");
+            //Console.WriteLine("ShadowDecorator");
 
+            Shower.DrawText(new String(' ', lvl * 2) + "ShadowDecorator {" + Environment.NewLine);
             Shower.SetBrushForShow(System.Drawing.Brushes.Gray);
-            decoratedFigure.ShowShadow(Shower, dx);
+            decoratedFigure.ShowShadow(lvl, Shower, dx);
 
             Shower.SetBrushForShow(System.Drawing.Brushes.Black);
             base.Show(lvl);
+
+            Shower.DrawText(new String(' ', lvl * 2) + "}" + Environment.NewLine);
         }
     }
 
@@ -85,13 +88,16 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            Console.WriteLine("BorderDecorator");
+            //Console.WriteLine("BorderDecorator");
 
+            Shower.DrawText(new String(' ', lvl * 2) + "BorderDecorator {" + Environment.NewLine);
             Shower.SetBrushForShow(System.Drawing.Brushes.Red);
-            decoratedFigure.ShowBorder(Shower);
+            decoratedFigure.ShowBorder(lvl, Shower);
 
             SetBrushForShow(System.Drawing.Brushes.Black);
             base.Show(lvl);
+
+            Shower.DrawText(new String(' ', lvl * 2) + "}" + Environment.NewLine);
         }
     }
 }
