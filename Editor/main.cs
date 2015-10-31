@@ -10,15 +10,15 @@ namespace Editor
     {
         static void Main(string[] args)
         {
-            IFigure pfc1 = new Circle(new Point(-1, -1), 50);
-            IFigure pfc2 = new Circle(new Point(1, -1), 75);
-            IFigure pfc3 = new Circle(new Point(1, -1), 100);
-            IFigure pfr1 = new Rectangle(new Point(-100, -100), new Point(-100, 100), new Point(100, 100), new Point(100, -100));
-            IFigure pfr2 = new Rectangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            IFigure pfr3 = new Rectangle(new Point(-3, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            IFigure pft1 = new Triangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1));
-            IFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
-            IFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
+            //IFigure pfc1 = new Circle(new Point(-1, -1), 50);
+            //IFigure pfc2 = new Circle(new Point(1, -1), 75);
+            //IFigure pfc3 = new Circle(new Point(1, -1), 100);
+            //IFigure pfr1 = new Rectangle(new Point(-100, -100), new Point(-100, 100), new Point(100, 100), new Point(100, -100));
+            //IFigure pfr2 = new Rectangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
+            //IFigure pfr3 = new Rectangle(new Point(-3, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
+            //IFigure pft1 = new Triangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1));
+            //IFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
+            //IFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
 
             /**/
             // 3
@@ -63,11 +63,13 @@ namespace Editor
             root.Add(dr1);
             root.Add(dc1);
 
-            //IFigure IFSD = new Triangle(new Point(-40, -40), new Powdewint(40, -40), new Point(0, 40));
-            IFigure IFSD = new ShadowDecorator(root);
-            IFSD = new ShadowDecorator(IFSD);
-            IFSD = new BorderDecorator(IFSD);
-            IFSD = new RemoveLastPropertyDecorator(IFSD);
+            IFigure forClone = new ShadowDecorator(root);
+            forClone = new ShadowDecorator(forClone);
+            forClone = new BorderDecorator(forClone);
+            forClone = new RemoveLastPropertyDecorator(forClone);
+
+            IFigure IFSD = forClone.Clone();
+            forClone = root;
 
             IFSD.SetShower(new ConsoleShower());
             IFSD.Show();
