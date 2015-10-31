@@ -16,6 +16,16 @@ namespace Editor
             SetName("CompositeFigure");
         }
 
+        public override IFigure Clone()
+        {
+            CompositeFigure res = new CompositeFigure();
+            foreach (IFigure f in children)
+            {
+                res.Add(f.Clone());
+            }
+            return res;
+        }
+
         public override double Area()
         {
             Double res = 0.0;
