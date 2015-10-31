@@ -16,6 +16,11 @@ namespace Editor
             this.X = x;
             this.Y = y;
         }
+        public Point(Point p)
+        {
+            this.X = p.X;
+            this.Y = p.Y;
+        }
 
         public static Point operator *(Point p, double c)
         {

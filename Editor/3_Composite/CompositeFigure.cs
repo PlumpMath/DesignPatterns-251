@@ -79,5 +79,41 @@ namespace Editor
                 pf.MoveOn(dx);
             }
         }
+        public override Point[] GetBorder()
+        {
+            Double minX = Double.PositiveInfinity, maxX = Double.NegativeInfinity;
+            Double minY = Double.PositiveInfinity, maxY = Double.NegativeInfinity;
+
+            Point[] arrP;
+
+            foreach (IFigure pf in children)
+            {
+                arrP = pf.GetBorder();
+                if (arrP.Length != 2)
+                    throw new Exception("CompositeFigure : GetBorder : arrP.Length != 2");
+
+                if (arrP[0].X < minX) minX = arrP[0].X;
+                if (arrP[1].X > maxX) maxX = arrP[1].X;
+                if (arrP[0].Y < minY) minY = arrP[0].Y;
+                if (arrP[1].Y > maxY) maxY = arrP[1].Y;
+            }
+
+            return new Point[2] { new Point(minX, minY), new Point(maxX, maxY) };
+        }
+        public override void ShowShadow(IShower shower, Point dx)
+        {
+            foreach (IFigure f in children)
+                f.ShowShadow(shower, dx);
+        }
+        public override void ShowBorder(IShower shower)
+        {
+            Point[] border = GetBorder();
+            Point[] poligon = new Point[4];
+            poligon[0] = new Point(border[0].X, border[0].Y);
+            poligon[1] = new Point(border[0].X, border[1].Y);
+            poligon[2] = new Point(border[1].X, border[1].Y);
+            poligon[3] = new Point(border[1].X, border[0].Y);
+            DrawPoligon(shower, poligon);
+        }
     }
 }

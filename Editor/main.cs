@@ -52,19 +52,21 @@ namespace Editor
             /**/
 
             // 4
-            CompositeFigure root = new CompositeFigure();
-            root.Add(new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0)));
-            root.Add(new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90)));
-            root.Add(new Circle(new Point(70, 70), 30));
+            IFigure dc1 = new Circle(new Point(70, 70), 30);
+            IFigure dr1 = new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90));
+            IFigure dt1 = new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0));
 
-            //IFigure IFSD = new Triangle(new Point(-40, -40), new Point(40, -40), new Point(0, 40));
+            dc1 = new BorderDecorator(dc1);
+
+            CompositeFigure root = new CompositeFigure();
+            root.Add(dt1);
+            root.Add(dr1);
+            root.Add(dc1);
+
+            //IFigure IFSD = new Triangle(new Point(-40, -40), new Powdewint(40, -40), new Point(0, 40));
             IFigure IFSD = new ShadowDecorator(root);
             IFSD = new ShadowDecorator(IFSD);
-            IFSD = new ShadowDecorator(IFSD);
-            IFSD = new ShadowDecorator(IFSD);
-            IFSD = new ShadowDecorator(IFSD);
-            IFSD = new ShadowDecorator(IFSD);
-            IFSD = new RemoveLastPropertyDecorator(IFSD);
+            IFSD = new BorderDecorator(IFSD);
             IFSD = new RemoveLastPropertyDecorator(IFSD);
 
             IFSD.SetShower(new WindowShower(0, 200));

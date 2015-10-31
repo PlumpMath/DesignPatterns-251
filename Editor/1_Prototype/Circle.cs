@@ -35,5 +35,28 @@ namespace Editor
 
         public override void MoveTo(Point x) { Center.MoveTo(x); }
         public override void MoveOn(Point dx) { Center.MoveOn(dx); }
+
+        public override Point[] GetBorder()
+        {
+            Point[] res = new Point[2];
+            res[0] = new Point(Center.X - R, Center.Y - R);
+            res[1] = new Point(Center.X + R, Center.Y + R);
+            return res;
+        }
+        public override void ShowShadow(IShower shower, Point dx)
+        {
+            Point newCenter = Center + dx;
+            DrawEllipse(shower, newCenter, R);
+        }
+        public override void ShowBorder(IShower shower)
+        {
+            Point[] border = GetBorder();
+            Point[] poligon = new Point[4];
+            poligon[0] = new Point(border[0].X, border[0].Y);
+            poligon[1] = new Point(border[0].X, border[1].Y);
+            poligon[2] = new Point(border[1].X, border[1].Y);
+            poligon[3] = new Point(border[1].X, border[0].Y);
+            DrawPoligon(shower, poligon);
+        }
     }
 }
