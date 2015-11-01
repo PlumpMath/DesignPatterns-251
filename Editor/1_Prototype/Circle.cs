@@ -9,14 +9,15 @@ namespace Editor
     class Circle : AFigure
     {
         public Point Center { get; private set; }
-        public Double R { get; private set; }
+        public double R { get; private set; }
 
         public Circle(Point center, Double r)
         {
             SetName("Circle");
-            this.Center = center;
+            this.Center = new Point(center);
             this.R = r;
         }
+        public override IFigure Clone() { return new Circle(Center, R); }
 
         public override Double Area()
         {

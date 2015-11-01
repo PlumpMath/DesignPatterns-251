@@ -15,10 +15,11 @@ namespace Editor
             SetName("Triangle");
 
             points = new Point[3];
-            points[0] = a1;
-            points[1] = a2;
-            points[2] = a3;
+            points[0] = new Point(a1);
+            points[1] = new Point(a2);
+            points[2] = new Point(a3);
         }
+        public override IFigure Clone() { return new Triangle(points[0], points[1], points[2]); }
 
         public override double Area()
         {
