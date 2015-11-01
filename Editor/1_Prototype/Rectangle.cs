@@ -15,11 +15,12 @@ namespace Editor
             SetName("Rectangle");
 
             points = new Point[4];
-            points[0] = a1;
-            points[1] = a2;
-            points[2] = a3;
-            points[3] = a4;
+            points[0] = new Point(a1);
+            points[1] = new Point(a2);
+            points[2] = new Point(a3);
+            points[3] = new Point(a4);
         }
+        public override IFigure Clone() { return new Rectangle(points[0], points[1], points[2], points[3]); }
 
         public override double Area()
         {
