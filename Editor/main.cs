@@ -53,10 +53,12 @@ namespace Editor
 
             // 4
             IFigure dc1 = new Circle(new Point(70, 70), 30);
-            IFigure dr1 = new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90));
+            IFigure dr1 = new Rectangle(new Point(-40, 40), new Point(-70, 40), new Point(-90, 90), new Point(-60, 90));
             IFigure dt1 = new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0));
 
             dc1 = new BorderDecorator(dc1);
+            dt1 = new BorderDecorator(dt1);
+            dt1 = new RemoveLastPropertyDecorator(dt1);
 
             CompositeFigure root = new CompositeFigure();
             root.Add(dt1);
