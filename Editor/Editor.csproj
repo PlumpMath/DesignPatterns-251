@@ -52,6 +52,7 @@
     <Compile Include="2_Bridge\IShower.cs" />
     <Compile Include="3_Composite\CompositeFigure.cs" />
     <Compile Include="4_Decorator\ADecorator.cs" />
+    <Compile Include="AdditionalTask1\CleverWindowShower.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>
   <ItemGroup>

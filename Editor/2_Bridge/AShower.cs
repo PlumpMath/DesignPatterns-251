@@ -52,12 +52,12 @@ namespace Editor
     public class WindowShower : AShower
     {
         private Point formCenter;
-        private Brush brush = Brushes.Black;
-        private Pen pen;
+        protected Brush brush = Brushes.Black;
+        protected Pen pen;
         private double transparency;
         private double kScale;
         private Form1 f1;
-        private Graphics g;
+        protected Graphics g;
         public WindowShower(double transparency, double scale)
         {
             this.transparency = transparency;
@@ -68,7 +68,7 @@ namespace Editor
             this.formCenter = new Point(f1.bmp.Width / 2.0, f1.bmp.Height / 2.0);
         }
 
-        private PointF getCoords(Point p)
+        protected PointF getCoords(Point p)
         {
             Point newPoint = formCenter - kScale * p;
             return convert(newPoint);
