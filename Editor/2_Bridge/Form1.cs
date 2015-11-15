@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Editor
 {
-    partial class Form1 : Form
+    public partial class Form1 : Form
     {
         public Bitmap bmp = new Bitmap(500, 500);
         public Graphics graphics;
