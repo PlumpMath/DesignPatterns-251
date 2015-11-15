@@ -10,78 +10,61 @@ namespace Editor
     {
         static void Main(string[] args)
         {
-            //IFigure pfc1 = new Circle(new Point(-1, -1), 50);
-            //IFigure pfc2 = new Circle(new Point(1, -1), 75);
-            //IFigure pfc3 = new Circle(new Point(1, -1), 100);
-            //IFigure pfr1 = new Rectangle(new Point(-100, -100), new Point(-100, 100), new Point(100, 100), new Point(100, -100));
-            //IFigure pfr2 = new Rectangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            //IFigure pfr3 = new Rectangle(new Point(-3, -1), new Point(-1, 1), new Point(1, 1), new Point(1, -1));
-            //IFigure pft1 = new Triangle(new Point(-1, -1), new Point(-1, 1), new Point(1, 1));
-            //IFigure pft2 = new Triangle(new Point(-2, -1), new Point(-1, 1), new Point(1, 1));
-            //IFigure pft3 = new Triangle(new Point(-40, -40), new Point(0, 45), new Point(40, 1));
-
-            /**/
-            // 3
-            // Create a tree structure
-            //CompositeFigure root = new CompositeFigure();
-
-            //root.Add(pfc1);
-            //root.Add(pfc2);
-
-            //CompositeFigure comp1 = new CompositeFigure();
-            //comp1.Add(pfr1);
-            //comp1.Add(pfr2);
-
-            //CompositeFigure comp2 = new CompositeFigure();
-            //comp2.Add(pfc3);
-            //comp2.Add(pfr3);
-            //comp2.Add(pft3);
-            //comp1.Add(comp2);
-
-            //root.Add(comp1);
-            //root.Add(pfc3);
-
-            //root.SetShower(new ConsoleShower());
-            //root.Show();
-            //root.EndShow();
-
-            //root.SetShower(new WindowShower(0, 200));
-            //root.Show();
-            //root.EndShow();
-
-            /**/
-
             // 4
-            IFigure dc1 = new Circle(new Point(70, 70), 30);
-            IFigure dr1 = new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90));
-            IFigure dt1 = new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0));
+            IFigure dc4 = new Circle(new Point(70, 70), 30);
+            IFigure dr4 = new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90));
+            IFigure dt4 = new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0));
 
-            dc1 = new BorderDecorator(dc1);
-            dt1 = new BorderDecorator(dt1);
-            dt1 = new RemoveLastPropertyDecorator(dt1);
+            dc4 = new BorderDecorator(dc4);
+            dt4 = new BorderDecorator(dt4);
+            dt4 = new RemoveLastPropertyDecorator(dt4);
 
-            CompositeFigure root = new CompositeFigure();
-            root.Add(dt1);
-            root.Add(dr1);
-            root.Add(dc1);
+            CompositeFigure root4 = new CompositeFigure();
+            root4.Add(dt4);
+            root4.Add(dr4);
+            root4.Add(dc4);
 
-            IFigure forClone = new ShadowDecorator(root);
+            IFigure forClone = new ShadowDecorator(root4);
             forClone = new ShadowDecorator(forClone);
             forClone = new BorderDecorator(forClone);
             //forClone = new RemoveLastPropertyDecorator(forClone);
 
-            IFigure IFSD = forClone.Clone();
-            forClone = root;
+            IFigure IFSD4 = forClone.Clone();
+            forClone = root4;
 
-            IFSD.SetShower(new ConsoleShower());
-            IFSD.Show();
+            IFSD4.SetShower(new ConsoleShower());
+            IFSD4.Show();
 
             //IFSD.SetShower(new WindowShower(0, 200));
             //IFSD.Show();
             //IFSD.EndShow();
-            IFSD.SetShower(new CleverWindowShower(0, 200));
-            IFSD.Show();
-            IFSD.EndShow();
+
+            // Костыль
+            //IFSD4.SetShower(new CleverWindowShower(0, 200));
+            //IFSD4.Show();
+            //IFSD4.EndShow();
+
+            // 5
+            IFigure dc5 = new Circle(new Point(70, 70), 30);
+            IFigure dr5 = new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90));
+            IFigure dt5 = new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0));
+            CompositeFigure root5 = new CompositeFigure();
+            root4.Add(dc5);
+            root4.Add(dr5);
+            root4.Add(dt5);
+            root4.MoveOn(new Point(-5, 5));
+
+            Registry r1 = Registry.GetInstance();
+            r1.Add(dc5);    // [0]
+            r1.Add(dr5);    // [1]
+            r1.Add(dt5);    // [2]
+
+            Registry r2 = Registry.GetInstance();
+            r2.Add(root5);   // [3]
+            r2.Add(root5);   // [4]
+
+            Console.WriteLine(r1.Get(3).Equals(r2.Get(3))); 
+            Console.WriteLine(r1.Get(3).Equals(r2.Get(4))); 
         }
     }
 }
