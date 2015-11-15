@@ -55,26 +55,26 @@ namespace Editor
             IFSD4.EndShow();
 
             // 5
-            //IFigure dc5 = new Circle(new Point(70, 70), 30);
-            //IFigure dr5 = new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90));
-            //IFigure dt5 = new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0));
-            //CompositeFigure root5 = new CompositeFigure();
-            //root5.Add(dc5);
-            //root5.Add(dr5);
-            //root5.Add(dt5);
-            //root5.MoveOn(new Point(-5, 5));
+            IFigure dc5 = new Circle(new Point(70, 70), 30);
+            IFigure dr5 = new Rectangle(new Point(-40, 40), new Point(-90, 40), new Point(-90, 90), new Point(-40, 90));
+            IFigure dt5 = new Triangle(new Point(-20, -40), new Point(20, -40), new Point(0, 0));
+            CompositeFigure root5 = new CompositeFigure();
+            root5.Add(dc5);
+            root5.Add(dr5);
+            root5.Add(dt5);
+            root5.MoveOn(new Point(-5, 5));
 
-            //Registry r1 = Registry.GetInstance();
-            //r1.Add(dc5);    // [0]
-            //r1.Add(dr5);    // [1]
-            //r1.Add(dt5);    // [2]
+            Registry r1 = Registry.GetInstance();
+            r1.Add(dc5);    // [0]
+            r1.Add(dr5);    // [1]
+            r1.Add(dt5);    // [2]
 
-            //Registry r2 = Registry.GetInstance();
-            //r2.Add(root5);   // [3]
-            //r2.Add(root5);   // [4]
+            Registry r2 = Registry.GetInstance();
+            r2.Add(root5);   // [3]
+            r2.Add(root5);   // [4]
 
-            //Console.WriteLine(r1.Get(3).Equals(r2.Get(3))); 
-            //Console.WriteLine(r1.Get(3).Equals(r2.Get(4))); 
+            Console.WriteLine(r1.Get(3).Equals(r2.Get(3)));
+            Console.WriteLine(r1.Get(3).Equals(r2.Get(4)));
         }
     }
 }
