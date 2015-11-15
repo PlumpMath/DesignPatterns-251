@@ -54,18 +54,24 @@ namespace Editor
         private Point formCenter;
         protected Brush brush = Brushes.Black;
         protected Pen pen;
-        private double transparency;
+        public double transparency { get; set; }
+        public double scale { get; set; }
         private double kScale;
         private Form1 f1;
-        protected Graphics g;
+        public Graphics g;
         public WindowShower(double transparency, double scale)
         {
             this.transparency = transparency;
+            this.scale = scale;
             this.kScale = scale / 100.0;
             this.pen = new Pen(brush);
             f1 = new Form1();
             g = Graphics.FromImage(f1.bmp);
             this.formCenter = new Point(f1.bmp.Width / 2.0, f1.bmp.Height / 2.0);
+        }
+        public Form1 GetForm()
+        {
+            return f1;
         }
 
         protected PointF getCoords(Point p)
