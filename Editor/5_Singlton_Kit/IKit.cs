@@ -8,10 +8,7 @@ namespace Editor
 {
     interface IKit
     {
-        List<IFigure> get();
-        void Add(IFigure f);
-
-        IFigure Get(int ind);
-        IFigure CreateClone(IFigure f);
+        int  Regisry(IFigure f);
+        IFigure Create(int key);
     }
 }

@@ -8,35 +8,29 @@ namespace Editor
 {
     class Registry : Singleton<Registry>, IKit
     {
-        private List<IFigure> children;
+        private Dictionary<int, IFigure> children;
 
         private Registry()
         {
-            children = new List<IFigure>();
+            children = new Dictionary<int, IFigure>();
         }
 
-        // IKit
-        public void Add(IFigure f)
+        #region IKit
+        public IFigure Create(int key)
         {
-            children.Add(f.Clone());
-        }
+            if (!children.ContainsKey(key))
+                throw new IndexOutOfRangeException("Registry.Create(" + key + ")");
 
-        public IFigure CreateClone(IFigure f)
+            return children[key].Clone();
+        }
+        public int Regisry(IFigure f)
         {
-            return f.Clone();
-        }
+            int key = (children.Keys.Count == 0) ? 0 : (children.Keys.Max() + 1);
 
-        public List<IFigure> get()
-        {
-            return children;
-        }
+            children.Add(key, f.Clone());
 
-        public IFigure Get(int ind)
-        {
-            if (ind < 0 || ind >= children.Count)
-                throw new ArgumentOutOfRangeException("Registry.Get(" + ind + "), but children.Count = " + children.Count);
-
-            return children[ind];
+            return key;
         }
+        #endregion
     }
 }

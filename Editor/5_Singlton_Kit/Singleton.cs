@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    public abstract class Singleton<T> //: IKit
+    public abstract class Singleton<T>
     {
         private static readonly object instanceLock = new object();
-        private static T instance; // Derived class instance
-
-        // Protected constructor accessible from derived class
+        private static T instance;
+        
         protected Singleton()
         {
         }
-
-        // Returns the singleton instance of the derived class
+        
         public static T GetInstance()
         {
             lock (instanceLock)
@@ -29,7 +27,5 @@ namespace Editor
                 return instance;
             }
         }
-
-        // IKit
     }
 }
