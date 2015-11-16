@@ -127,7 +127,7 @@ namespace Editor
             poligon[1] = new Point(border[0].X, border[1].Y);
             poligon[2] = new Point(border[1].X, border[1].Y);
             poligon[3] = new Point(border[1].X, border[0].Y);
-            DrawPoligon(shower, poligon);
+            FillPoligon(shower, poligon);
         }
     }
 }

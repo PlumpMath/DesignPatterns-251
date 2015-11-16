@@ -8,9 +8,13 @@ namespace Editor
 {
     public interface IShower
     {
+        void DrawText(String text);
+
         void DrawPoligon(params Point[] Points);
         void DrawEllipse(Point Center, Double R);
-        void DrawText(String text);
+
+        void FillPoligon(params Point[] Points);
+        void FillEllipse(Point Center, Double R);
 
         void EndShow();
 

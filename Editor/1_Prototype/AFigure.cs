@@ -41,10 +41,10 @@ namespace Editor
                 return _Shower;
             }
         }
-        protected void DrawPoligon(IShower shower, params Point[] Points) { shower.DrawPoligon(Points); }
-        protected void DrawEllipse(IShower shower, Point Center, Double R) { shower.DrawEllipse(Center, R); }
-        protected void DrawPoligon(params Point[] Points) { Shower.DrawPoligon(Points); }
-        protected void DrawEllipse(Point Center, Double R) { Shower.DrawEllipse(Center, R); }
+        protected void FillPoligon(IShower shower, params Point[] Points) { shower.FillPoligon(Points); }
+        protected void FillEllipse(IShower shower, Point Center, Double R) { shower.FillEllipse(Center, R); }
+        protected void FillPoligon(params Point[] Points) { Shower.FillPoligon(Points); }
+        protected void FillEllipse(Point Center, Double R) { Shower.FillEllipse(Center, R); }
         protected void DrawText(String text) { Shower.DrawText(text); }
         public void EndShow() { Shower.EndShow(); }
         public void SetBrushForShow(System.Drawing.Brush brush) { Shower.SetBrushForShow(brush); }

@@ -38,7 +38,7 @@ namespace Editor
         public override void Show(int lvl = 0)
         {
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
-            DrawPoligon(points);
+            FillPoligon(points);
         }
 
         public override void MoveTo(Point x)
@@ -73,7 +73,7 @@ namespace Editor
             Point[] poligon = new Point[points.Length];
             for (int i = 0; i < points.Length; i++)
                 poligon[i] = points[i] + dx;
-            DrawPoligon(shower, poligon);
+            FillPoligon(shower, poligon);
         }
         public override void ShowBorder(int lvl, IShower shower)
         {
@@ -85,7 +85,7 @@ namespace Editor
             poligon[1] = new Point(border[0].X, border[1].Y);
             poligon[2] = new Point(border[1].X, border[1].Y);
             poligon[3] = new Point(border[1].X, border[0].Y);
-            DrawPoligon(shower, poligon);
+            FillPoligon(shower, poligon);
         }
     }
 }

@@ -8,7 +8,9 @@ namespace Editor
     {
         #region IShower
         public abstract void DrawEllipse(Point Center, Double R);
+        public abstract void FillEllipse(Point Center, Double R);
         public abstract void DrawPoligon(params Point[] Points);
+        public abstract void FillPoligon(params Point[] Points);
         public abstract void DrawText(String text);
         public abstract void EndShow();
 
@@ -19,6 +21,8 @@ namespace Editor
 
     public class ConsoleShower : AShower
     {
+        public override void FillEllipse(Point Center, double R) { DrawEllipse(Center, R); }
+        public override void FillPoligon(params Point[] Points) { DrawPoligon(Points); }
         public override void DrawEllipse(Point Center, double R)
         {
             Console.WriteLine(" : center=" + Center.ToString() + " , R=" + R);
@@ -90,10 +94,30 @@ namespace Editor
             PointF EllipseCenter = getCoords(Center);
             PointF p123 = convert(convert(EllipseCenter) - (new Point(r,r)));
 
+            pen = new Pen(Brushes.YellowGreen);
+            g.DrawEllipse(pen, new RectangleF(p123, size));
+            //g.FillEllipse(brush, new RectangleF(p123, size));
+        }
+        public override void DrawPoligon(params Point[] Points)
+        {
+            PointF[] arr = new PointF[Points.Length];
+            for (int i = 0; i < Points.Length; i++) arr[i] = getCoords(Points[i]);
+
+            pen = new Pen(Brushes.YellowGreen);
+            g.DrawPolygon(pen, arr);
+            //g.FillPolygon(brush, arr);
+        }
+        public override void FillEllipse(Point Center, double R)
+        {
+            float r = (float)(R * kScale);
+            SizeF size = new SizeF(2.0f * r, 2.0f * r);
+            PointF EllipseCenter = getCoords(Center);
+            PointF p123 = convert(convert(EllipseCenter) - (new Point(r, r)));
+
             //g.DrawEllipse(pen, new RectangleF(p123, size));
             g.FillEllipse(brush, new RectangleF(p123, size));
         }
-        public override void DrawPoligon(params Point[] Points)
+        public override void FillPoligon(params Point[] Points)
         {
             PointF[] arr = new PointF[Points.Length];
             for (int i = 0; i < Points.Length; i++) arr[i] = getCoords(Points[i]);

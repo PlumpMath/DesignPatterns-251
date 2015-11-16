@@ -31,7 +31,7 @@ namespace Editor
         public override void Show(int lvl = 0)
         {
             DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
-            DrawEllipse(Center, R);
+            FillEllipse(Center, R);
         }
 
         public override void MoveTo(Point x) { Center.MoveTo(x); }
@@ -49,7 +49,7 @@ namespace Editor
             DrawText(new String('+', lvl * 2) + "shadow");
 
             Point newCenter = Center + dx;
-            DrawEllipse(shower, newCenter, R);
+            FillEllipse(shower, newCenter, R);
         }
         public override void ShowBorder(int lvl, IShower shower)
         {
@@ -61,7 +61,7 @@ namespace Editor
             poligon[1] = new Point(border[0].X, border[1].Y);
             poligon[2] = new Point(border[1].X, border[1].Y);
             poligon[3] = new Point(border[1].X, border[0].Y);
-            DrawPoligon(shower, poligon);
+            FillPoligon(shower, poligon);
         }
     }
 }
