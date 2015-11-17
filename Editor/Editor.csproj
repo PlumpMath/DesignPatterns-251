@@ -55,6 +55,9 @@
     <Compile Include="5_Singlton_Kit\IKit.cs" />
     <Compile Include="5_Singlton_Kit\Registry.cs" />
     <Compile Include="5_Singlton_Kit\Singleton.cs" />
+    <Compile Include="6_Strategy\ByArea.cs" />
+    <Compile Include="6_Strategy\ByPerimeter.cs" />
+    <Compile Include="6_Strategy\IStrategy.cs" />
     <Compile Include="AdditionalTask1\AdditionalFigureDecorator.cs" />
     <Compile Include="AdditionalTask1\AdditionalShowerDecorator.cs" />
     <Compile Include="AdditionalTask1\JustMultyDecorator.cs" />

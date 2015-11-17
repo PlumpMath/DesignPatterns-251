@@ -45,7 +45,7 @@ namespace Editor
 
         public override void EndShow()
         {
-            Console.WriteLine("Done!");
+            Console.WriteLine("Done!" + Environment.NewLine + Environment.NewLine);
         }
 
         public override void SetBrushForShow(Brush brush)

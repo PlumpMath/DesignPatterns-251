@@ -57,7 +57,7 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=" + Environment.NewLine);
+            DrawText(new String('-', lvl * 2) + GetName() + " : P="+Perimeter()+",S=" +Area() + Environment.NewLine);
 
             foreach (IFigure pf in children)
             {
@@ -129,5 +129,20 @@ namespace Editor
             poligon[3] = new Point(border[1].X, border[0].Y);
             FillPoligon(shower, poligon);
         }
+
+        #region 6_Strategy
+        //private IStrategy strategy = null;
+        //public void SetStrategy(IStrategy strategy)
+        //{
+        //    this.strategy = strategy;
+        //}
+        public void Sort(IStrategy strategy)
+        {
+            if (strategy == null)
+                throw new ArgumentNullException("Sort : strategy == null");
+
+            strategy.Sort(ref children);
+        }
+        #endregion
     }
 }

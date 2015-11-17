@@ -37,7 +37,7 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            DrawText(new String('-', lvl * 2) + GetName() + " : P=,S=");
+            DrawText(new String('-', lvl * 2) + GetName() + " : P=" + Perimeter() + ",S=" + Area());
             FillPoligon(points);
         }
 
