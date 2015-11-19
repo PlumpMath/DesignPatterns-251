@@ -110,6 +110,8 @@ namespace Editor
             root6_2.Sort(new ByPerimeter());
             root6_2.Show();
             root6_2.EndShow();
+
+            Console.ReadKey();
         }
     }
 }

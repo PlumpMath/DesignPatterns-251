@@ -8,7 +8,7 @@ namespace Editor
 {
     class ByArea : IStrategy
     {
-        public void Sort(ref List<IFigure> arr)
+        public void Sort(List<IFigure> arr)
         {
             for (int i=0; i<arr.Count-1; i++)
                 for (int j = 0; j< arr.Count - 1  - i; j++)

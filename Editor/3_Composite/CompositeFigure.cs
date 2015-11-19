@@ -131,17 +131,12 @@ namespace Editor
         }
 
         #region 6_Strategy
-        //private IStrategy strategy = null;
-        //public void SetStrategy(IStrategy strategy)
-        //{
-        //    this.strategy = strategy;
-        //}
         public void Sort(IStrategy strategy)
         {
             if (strategy == null)
                 throw new ArgumentNullException("Sort : strategy == null");
 
-            strategy.Sort(ref children);
+            strategy.Sort(children);
         }
         #endregion
     }

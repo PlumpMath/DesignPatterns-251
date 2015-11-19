@@ -8,6 +8,6 @@ namespace Editor
 {
     public interface IStrategy
     {
-        void Sort(ref List<IFigure> arr);
+        void Sort(List<IFigure> arr);
     }
 }
