@@ -87,5 +87,20 @@ namespace Editor
             poligon[3] = new Point(border[1].X, border[0].Y);
             FillPoligon(shower, poligon);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Rectangle f = obj as Rectangle;
+            if (f == null) return false;
+
+            bool b = true;
+            if (points.Length != f.points.Length)
+                return false;
+            for (int i = 0; i < points.Length; i++)
+                b &= points[i].Equals(f.points[i]);
+
+            return b;
+        }
     }
 }

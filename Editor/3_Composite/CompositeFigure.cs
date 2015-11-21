@@ -15,6 +15,10 @@ namespace Editor
         {
             SetName("CompositeFigure");
         }
+        public CompositeFigure(params IFigure[] array)
+        {
+            children.AddRange(array);
+        }
 
         public override IFigure Clone()
         {
@@ -139,5 +143,20 @@ namespace Editor
             strategy.Sort(children);
         }
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            CompositeFigure f = obj as CompositeFigure;
+            if (f == null) return false;
+
+            bool b = true;
+            if (children.Count != f.children.Count)
+                return false;
+            for (int i = 0; i < children.Count; i++)
+                b &= children[i].Equals(f.children[i]);
+
+            return b;
+        }
     }
 }

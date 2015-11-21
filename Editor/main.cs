@@ -32,6 +32,25 @@ namespace Editor
             //root6_2.Show();
             //root6_2.EndShow();
 
+            // 7
+            IFigure dc7 = new Circle(new Point(10.0, -10.0), 10.0);
+            IFigure dr7 = new Rectangle(new Point(0, 0), new Point(10, 0), new Point(10, 10), new Point(0, 10));
+            IFigure dt7 = new Triangle(new Point(0, 0), new Point(10, 0), new Point(0, 10));
+            CompositeFigure cf7 = new CompositeFigure(dc7, dr7, dt7);
+            //cf7.Remove(dc7);
+
+            User user = new User();
+
+            user.AddFigure(dc7);
+            user.AddFigure(dr7);
+            user.AddFigure(dt7);
+            user.AddFigure(cf7);
+            user.DelFigure(dr7);
+            user.AddFigure(dr7);
+            user.MakeComposite(dc7, dr7);
+
+            user.Undo(2);
+
             Console.ReadKey();
         }
     }

@@ -74,5 +74,17 @@ namespace Editor
             this.X += dx.X;
             this.Y += dx.Y;
         }
+
+        private double EPSILON = 1e-10;
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Point p = obj as Point;
+            if (p == null) return false;
+
+            if ((X-p.X)* (X - p.X) + (Y - p.Y) * (Y - p.Y) < EPSILON)
+                return true;
+            return false;
+        }
     }
 }

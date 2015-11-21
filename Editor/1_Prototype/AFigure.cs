@@ -55,5 +55,16 @@ namespace Editor
         public abstract void ShowShadow(int lvl, IShower shower, Point dx);
         public abstract void ShowBorder(int lvl, IShower shower);
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            AFigure f = obj as AFigure;
+            if (f == null) return false;
+
+            if (f.Name == Name && f.Shower == Shower)
+                return true;
+            return false;
+        }
     }
 }

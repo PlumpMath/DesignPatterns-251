@@ -63,5 +63,16 @@ namespace Editor
             poligon[3] = new Point(border[1].X, border[0].Y);
             FillPoligon(shower, poligon);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Circle f = obj as Circle;
+            if (f == null) return false;
+
+            if (R.Equals(f.R) && Center.Equals(f.Center))
+                return true;
+            return false;
+        }
     }
 }
