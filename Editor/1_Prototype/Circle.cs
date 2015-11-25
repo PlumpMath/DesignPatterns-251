@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    class Circle : AFigure
+    public class Circle : AFigure
     {
         public Point Center { get; private set; }
         public double R { get; private set; }

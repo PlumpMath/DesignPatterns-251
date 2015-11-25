@@ -82,7 +82,7 @@ namespace Editor
             Point p = obj as Point;
             if (p == null) return false;
 
-            if ((X-p.X)* (X - p.X) + (Y - p.Y) * (Y - p.Y) < EPSILON)
+            if ((X-p.X)* (X - p.X) + (Y - p.Y) * (Y - p.Y) < EPSILON && this == p)
                 return true;
             return false;
         }

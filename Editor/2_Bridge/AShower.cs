@@ -50,7 +50,6 @@ namespace Editor
 
         public override void SetBrushForShow(Brush brush)
         {
-            //Console.Write(brush.ToString());
         }
     }
     public class WindowShower : AShower
@@ -96,7 +95,6 @@ namespace Editor
 
             pen = new Pen(Brushes.YellowGreen);
             g.DrawEllipse(pen, new RectangleF(p123, size));
-            //g.FillEllipse(brush, new RectangleF(p123, size));
         }
         public override void DrawPoligon(params Point[] Points)
         {
@@ -105,7 +103,6 @@ namespace Editor
 
             pen = new Pen(Brushes.YellowGreen);
             g.DrawPolygon(pen, arr);
-            //g.FillPolygon(brush, arr);
         }
         public override void FillEllipse(Point Center, double R)
         {
@@ -114,7 +111,6 @@ namespace Editor
             PointF EllipseCenter = getCoords(Center);
             PointF p123 = convert(convert(EllipseCenter) - (new Point(r, r)));
 
-            //g.DrawEllipse(pen, new RectangleF(p123, size));
             g.FillEllipse(brush, new RectangleF(p123, size));
         }
         public override void FillPoligon(params Point[] Points)
@@ -122,7 +118,6 @@ namespace Editor
             PointF[] arr = new PointF[Points.Length];
             for (int i = 0; i < Points.Length; i++) arr[i] = getCoords(Points[i]);
 
-            //g.DrawPolygon(pen, arr);
             g.FillPolygon(brush, arr);
         }
         public override void DrawText(String text) { }

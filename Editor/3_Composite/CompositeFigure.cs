@@ -159,7 +159,7 @@ namespace Editor
             return b;
         }
 
-        public void DelAll()
+        public void RemoveAllChilds()
         {
             children.RemoveRange(0, children.Count);
         }

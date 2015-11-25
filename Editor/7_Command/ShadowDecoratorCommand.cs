@@ -4,11 +4,12 @@ namespace Editor
 {
     internal class ShadowDecoratorCommand : ACommand
     {
-        private IFigure f;
+        IFigure f;
 
-        public ShadowDecoratorCommand(IFigure f)
+        public ShadowDecoratorCommand(ref IFigure f)
         {
             this.f = f;
+            f = new ShadowDecorator(f);
         }
 
         public override void Execute()

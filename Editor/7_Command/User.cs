@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
+    sealed class MyRef<T>
+    {
+        public T Value { get; set; }
+    }
+
     class User
     {
         public User()
@@ -21,11 +26,6 @@ namespace Editor
         private List<ACommand> _commands = new List<ACommand>();
 
         private int _current = 0;
-
-        private void Clear()
-        {
-            figures.DelAll();
-        }
 
         public void Redo(int levels)
         {
@@ -55,26 +55,12 @@ namespace Editor
             }
         }
 
-        //public void Compute(char @operator, int operand)
-        //{
-
-        //    // Создаем команду операции и выполняем её
-        //    Command command = new CalculatorCommand(
-        //      _calculator, @operator, operand);
-        //    command.Execute();
-
-        //    if (_current < _commands.Count)
-        //    {
-        //        // если "внутри undo" мы запускаем новую операцию, 
-        //        // надо обрубать список команд, следующих после текущей, 
-        //        // иначе undo/redo будут некорректны
-        //        _commands.RemoveRange(_current, _commands.Count - _current);
-        //    }
-
-        //    // Добавляем операцию к списку отмены
-        //    _commands.Add(command);
-        //    _current++;
-        //}
+        internal void Show(AShower shower)
+        {
+            figures.SetShower(shower);
+            figures.Show();
+            figures.EndShow();
+        }
 
         private void HandleAddCommand(ACommand command)
         {
@@ -86,9 +72,9 @@ namespace Editor
             _current++;
         }
 
-        internal void DecorateWithShadow(IFigure f)
+        internal void DecorateWithShadow(ref IFigure f)
         {
-            ACommand command = new ShadowDecoratorCommand(f);
+            ACommand command = new ShadowDecoratorCommand(ref f);
             command.Execute();
 
             HandleAddCommand(command);
@@ -111,13 +97,6 @@ namespace Editor
         internal void MakeComposite(params IFigure[] arr)
         {
             ACommand command = new MakeCompositeCommand(figures, arr);
-            command.Execute();
-
-            HandleAddCommand(command);
-        }
-        internal void AddDecorator(IFigure f, ADecorator d)
-        {
-            ACommand command = new AddDecoratorCommand(f, d);
             command.Execute();
 
             HandleAddCommand(command);

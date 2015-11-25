@@ -13,7 +13,7 @@ namespace Editor
 
         public override void Execute()
         {
-            figures.DelAll();
+            figures.RemoveAllChilds();
         }
     }
 }

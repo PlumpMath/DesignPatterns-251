@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,8 +69,6 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            //Console.WriteLine("ShadowDecorator");
-
             Shower.DrawText(new String(' ', lvl * 2) + "ShadowDecorator {" + Environment.NewLine);
             Shower.SetBrushForShow(System.Drawing.Brushes.Gray);
             decoratedFigure.ShowShadow(lvl, Shower, dx);
@@ -88,8 +86,6 @@ namespace Editor
 
         public override void Show(int lvl = 0)
         {
-            //Console.WriteLine("BorderDecorator");
-
             Shower.DrawText(new String(' ', lvl * 2) + "BorderDecorator {" + Environment.NewLine);
             Shower.SetBrushForShow(System.Drawing.Brushes.Red);
             decoratedFigure.ShowBorder(lvl, Shower);

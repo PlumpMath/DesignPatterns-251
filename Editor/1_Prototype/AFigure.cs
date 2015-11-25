@@ -24,7 +24,7 @@ namespace Editor
         public abstract void MoveOn(Point dx);
 
         public virtual void SetShower(IShower shower) { this.Shower = shower; }     // overrided in CompositeFigure
-        public abstract void Show(int lvl = 0);   // public for CompositeFigure
+        public abstract void Show(int lvl = 0);                                     // public for CompositeFigure
         #endregion
 
         #region for Shower

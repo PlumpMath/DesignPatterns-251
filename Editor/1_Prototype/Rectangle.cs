@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    class Rectangle : AFigure
+    public class Rectangle : AFigure
     {
         private Point[] points;
 

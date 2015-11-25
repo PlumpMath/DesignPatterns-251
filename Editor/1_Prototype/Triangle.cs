@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    class Triangle : AFigure
+    public class Triangle : AFigure
     {
         private Point[] points;
 
