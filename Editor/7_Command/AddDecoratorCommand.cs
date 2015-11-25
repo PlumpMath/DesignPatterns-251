@@ -17,10 +17,5 @@ namespace Editor
         {
             // TODO: Decorator
         }
-
-        public override void UnExecute()
-        {
-            f = new RemoveLastPropertyDecorator(f);
-        }
     }
 }

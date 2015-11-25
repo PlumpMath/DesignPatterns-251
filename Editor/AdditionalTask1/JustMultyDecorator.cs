@@ -16,10 +16,6 @@ namespace Editor
         {
             decoratedFigure = figureToDecorate;
         }
-        //public JustMultyDecorator(IFigure figureToDecorate)
-        //{
-        //    decoratedFigure = figureToDecorate;
-        //}
 
         #region IFigure
         public double Area() { return decoratedFigure.Area(); }
@@ -34,7 +30,6 @@ namespace Editor
         {
             this.Shower = shower;
 
-            //if (!(shower is AdditionalShowerDecorator))
             shower = new AdditionalShowerDecorator(shower, decoratedFigure);
 
             decoratedFigure.SetShower(shower);

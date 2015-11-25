@@ -24,15 +24,5 @@ namespace Editor
 
             figures.Add(cf);
         }
-
-        public override void UnExecute()
-        {
-            figures.Remove(cf);
-
-            foreach (IFigure f in arr)
-            {
-                figures.Add(f);
-            }
-        }
     }
 }

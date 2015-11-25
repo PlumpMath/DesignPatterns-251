@@ -17,10 +17,5 @@ namespace Editor
         {
             figures.Add(f);
         }
-
-        public override void UnExecute()
-        {
-            figures.Remove(f);
-        }
     }
 }

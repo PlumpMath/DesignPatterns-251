@@ -2,20 +2,18 @@
 
 namespace Editor
 {
-    internal class DelFigureCommand : ACommand
+    internal class ClearCommand : ACommand
     {
-        private IFigure f;
         private CompositeFigure figures;
 
-        public DelFigureCommand(CompositeFigure figures, IFigure f)
+        public ClearCommand(CompositeFigure figures)
         {
             this.figures = figures;
-            this.f = f;
         }
 
         public override void Execute()
         {
-            figures.Remove(f);
+            figures.DelAll();
         }
     }
 }

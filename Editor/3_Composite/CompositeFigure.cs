@@ -158,5 +158,10 @@ namespace Editor
 
             return b;
         }
+
+        public void DelAll()
+        {
+            children.RemoveRange(0, children.Count);
+        }
     }
 }

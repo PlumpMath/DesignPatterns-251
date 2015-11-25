@@ -8,30 +8,51 @@ namespace Editor
 {
     class User
     {
+        public User()
+        {
+            ACommand command = new ClearCommand(figures);
+            command.Execute();
+
+            HandleAddCommand(command);
+        }
+
         // Initializers
         private CompositeFigure figures = new CompositeFigure();
         private List<ACommand> _commands = new List<ACommand>();
 
         private int _current = 0;
 
+        private void Clear()
+        {
+            figures.DelAll();
+        }
+
         public void Redo(int levels)
         {
-            Console.WriteLine("\n---- Redo {0} levels ", levels);
+            int neededLvl = _current - levels;
+            if (neededLvl < 0 || neededLvl >= _current)
+            {
+                throw new Exception("OLOLO");
+            }
 
-            // Делаем возврат операций
-            for (int i = 0; i < levels; i++)
-                if (_current < _commands.Count)
-                    _commands[_current++].Execute();
+            for (int i=0; i<neededLvl; i++)
+            {
+                _commands[i].Execute();
+            }
         }
 
         public void Undo(int levels)
         {
-            Console.WriteLine("\n---- Undo {0} levels ", levels);
+            int neededLvl = _current - levels;
+            if (neededLvl < 0 || neededLvl >= _current)
+            {
+                throw new Exception("OLOLO");
+            }
 
-            // Делаем отмену операций
-            for (int i = 0; i < levels; i++)
-                if (_current > 0)
-                    _commands[--_current].UnExecute();
+            for (int i = 0; i < neededLvl; i++)
+            {
+                _commands[i].Execute();
+            }
         }
 
         //public void Compute(char @operator, int operand)
@@ -64,6 +85,15 @@ namespace Editor
             _commands.Add(command);
             _current++;
         }
+
+        internal void DecorateWithShadow(IFigure f)
+        {
+            ACommand command = new ShadowDecoratorCommand(f);
+            command.Execute();
+
+            HandleAddCommand(command);
+        }
+
         public void AddFigure(IFigure f)
         {
             ACommand command = new AddFigureCommand(figures, f);

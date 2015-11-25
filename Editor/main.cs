@@ -48,8 +48,9 @@ namespace Editor
             user.DelFigure(dr7);
             user.AddFigure(dr7);
             user.MakeComposite(dc7, dr7);
+            user.DecorateWithShadow(dc7);
 
-            user.Undo(2);
+            user.Undo(5);
 
             Console.ReadKey();
         }

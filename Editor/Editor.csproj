@@ -61,8 +61,10 @@
     <Compile Include="7_Command\ACommand.cs" />
     <Compile Include="7_Command\AddDecoratorCommand.cs" />
     <Compile Include="7_Command\AddFigureCommand.cs" />
+    <Compile Include="7_Command\ClearCommand.cs" />
     <Compile Include="7_Command\DelFigureCommand.cs" />
     <Compile Include="7_Command\MakeCompositeCommand.cs" />
+    <Compile Include="7_Command\ShadowDecoratorCommand.cs" />
     <Compile Include="7_Command\User.cs" />
     <Compile Include="AdditionalTask1\AdditionalFigureDecorator.cs" />
     <Compile Include="AdditionalTask1\AdditionalShowerDecorator.cs" />

@@ -9,6 +9,5 @@ namespace Editor
     abstract class ACommand
     {
         public abstract void Execute();
-        public abstract void UnExecute();
     }
 }
