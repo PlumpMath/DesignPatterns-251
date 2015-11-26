@@ -21,7 +21,7 @@ namespace Editor
 
             return children[key].Clone();
         }
-        public int Regisry(IFigure f)
+        public int Register(IFigure f)
         {
             int key = (children.Keys.Count == 0) ? 0 : (children.Keys.Max() + 1);
 

@@ -2,7 +2,7 @@
 {
     interface IKit
     {
-        int  Regisry(IFigure f);
+        int Register(IFigure f);
         IFigure Create(int key);
     }
 }

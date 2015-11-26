@@ -194,7 +194,7 @@ namespace UnitTestProject._0_AdditionalClasses
 
             bool b = p1.Equals(p2);
 
-            Assert.IsFalse(b);
+            Assert.IsTrue(b);
         }
 
         [TestMethod]
