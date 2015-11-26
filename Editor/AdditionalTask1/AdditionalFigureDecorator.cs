@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Editor
+﻿namespace Editor
 {
     class AdditionalFigureDecorator : IFigure
     {
@@ -29,7 +23,6 @@ namespace Editor
         {
             this.Shower = shower;
 
-            //if (!(shower is AdditionalShowerDecorator))
             shower = new AdditionalShowerDecorator(shower, decoratedFigure);
 
             decoratedFigure.SetShower(shower);

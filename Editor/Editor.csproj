@@ -67,6 +67,9 @@
     <Compile Include="2_Bridge\IShower.cs" />
     <Compile Include="3_Composite\CompositeFigure.cs" />
     <Compile Include="4_Decorator\ADecorator.cs" />
+    <Compile Include="4_Decorator\BorderDecorator.cs" />
+    <Compile Include="4_Decorator\RemoveLastPropertyDecorator.cs" />
+    <Compile Include="4_Decorator\ShadowDecorator.cs" />
     <Compile Include="5_Singlton_Kit\IKit.cs" />
     <Compile Include="5_Singlton_Kit\Registry.cs" />
     <Compile Include="5_Singlton_Kit\Singleton.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="6_Strategy\IStrategy.cs" />
     <Compile Include="7_Command\ACommand.cs" />
     <Compile Include="7_Command\AddFigureCommand.cs" />
+    <Compile Include="7_Command\BorderDecoratorCommand.cs" />
     <Compile Include="7_Command\ClearCommand.cs" />
     <Compile Include="7_Command\DelFigureCommand.cs" />
     <Compile Include="7_Command\MakeCompositeCommand.cs" />
@@ -82,7 +86,6 @@
     <Compile Include="7_Command\User.cs" />
     <Compile Include="AdditionalTask1\AdditionalFigureDecorator.cs" />
     <Compile Include="AdditionalTask1\AdditionalShowerDecorator.cs" />
-    <Compile Include="AdditionalTask1\JustMultyDecorator.cs" />
     <Compile Include="main.cs" />
   </ItemGroup>
   <ItemGroup>

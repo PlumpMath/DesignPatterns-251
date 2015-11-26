@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
 
 namespace Editor
@@ -16,6 +15,8 @@ namespace Editor
 
         // Set params for show()
         public abstract void SetBrushForShow(Brush brush);
+
+        public abstract void Clean();
         #endregion
     }
 
@@ -50,6 +51,11 @@ namespace Editor
 
         public override void SetBrushForShow(Brush brush)
         {
+        }
+
+        public override void Clean()
+        {
+            Console.Clear();
         }
     }
     public class WindowShower : AShower
@@ -132,6 +138,12 @@ namespace Editor
         {
             this.brush = brush;
             pen = new Pen(brush);
+        }
+
+        public override void Clean()
+        {
+            f1.bmp = new Bitmap(f1.bmp.Width, f1.bmp.Height);
+            g = Graphics.FromImage(f1.bmp);
         }
     }
 }

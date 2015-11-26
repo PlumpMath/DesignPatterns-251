@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace Editor
 {
-    sealed class MyRef<T>
-    {
-        public T Value { get; set; }
-    }
-
     class User
     {
         public User()
@@ -55,8 +50,12 @@ namespace Editor
             }
         }
 
+
+
         internal void Show(AShower shower)
         {
+            shower.Clean();
+
             figures.SetShower(shower);
             figures.Show();
             figures.EndShow();
@@ -72,14 +71,24 @@ namespace Editor
             _current++;
         }
 
-        internal void DecorateWithShadow(ref IFigure f)
+        internal void DecorateWithShadow(int ind)
         {
-            ACommand command = new ShadowDecoratorCommand(ref f);
+            IFigure f = figures.Get(ind);
+
+            ACommand command = new ShadowDecoratorCommand(figures, f);
             command.Execute();
 
             HandleAddCommand(command);
         }
+        internal void DecorateWithBorder(int ind)
+        {
+            IFigure f = figures.Get(ind);
 
+            ACommand command = new BorderDecoratorCommand(figures, f);
+            command.Execute();
+
+            HandleAddCommand(command);
+        }
         public void AddFigure(IFigure f)
         {
             ACommand command = new AddFigureCommand(figures, f);
@@ -94,8 +103,12 @@ namespace Editor
 
             HandleAddCommand(command);
         }
-        internal void MakeComposite(params IFigure[] arr)
+        internal void MakeComposite(params int[] indices)
         {
+            IFigure[] arr = new IFigure[indices.Length];
+            for (int i=0; i<indices.Length; i++)
+                arr[i] = figures.Get(indices[i]);
+
             ACommand command = new MakeCompositeCommand(figures, arr);
             command.Execute();
 

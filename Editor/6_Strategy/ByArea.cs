@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Editor
 {
@@ -18,7 +14,6 @@ namespace Editor
                         arr[j] = arr[j + 1];
                         arr[j + 1] = tmp;
                     }
-            //arr.OrderBy(x => x.Area());
         }
     }
 }

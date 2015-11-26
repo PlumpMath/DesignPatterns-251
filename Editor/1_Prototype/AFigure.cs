@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Editor
 {
@@ -58,13 +54,7 @@ namespace Editor
 
         public override bool Equals(object obj)
         {
-            if (obj == null) return false;
-            AFigure f = obj as AFigure;
-            if (f == null) return false;
-
-            if (f.Name == Name && f.Shower == Shower)
-                return true;
-            return false;
+            throw new Exception("You have to override Equals for YourClass:AFigure");
         }
     }
 }

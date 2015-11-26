@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Editor
 {
     public abstract class ADecorator : AFigure
@@ -32,6 +26,7 @@ namespace Editor
         public override void ShowShadow(int lvl, IShower shower, Point dx) { decoratedFigure.ShowShadow(lvl, shower, dx); }
         public override void ShowBorder(int lvl, IShower shower) { decoratedFigure.ShowBorder(lvl, shower); }
 
+
         public IFigure RemoveLastDecorator()
         {
             if (this is ADecorator)
@@ -39,61 +34,11 @@ namespace Editor
             else
                 return this;
         }
-    }
 
-    public class RemoveLastPropertyDecorator : ADecorator
-    {
-        public RemoveLastPropertyDecorator(IFigure figureToDecorate) : base(figureToDecorate)
+        public override bool Equals(object obj)
         {
-            Console.WriteLine("RemoveLastPropertyDecorator");
-
-            IFigure lastDecorator = figureToDecorate;
-            while (lastDecorator is RemoveLastPropertyDecorator)
-                lastDecorator = ((ADecorator)lastDecorator).RemoveLastDecorator();
-
-            if (lastDecorator is ADecorator)
-            {
-                decoratedFigure = ((ADecorator)lastDecorator).RemoveLastDecorator();
-
-                while (decoratedFigure is RemoveLastPropertyDecorator)
-                    decoratedFigure = ((ADecorator)decoratedFigure).RemoveLastDecorator();
-            }
-        }
-    }
-
-    public class ShadowDecorator : ADecorator
-    {
-        private Point dx = new Point(-5.0, -5.0);
-
-        public ShadowDecorator(IFigure figureToDecorate) : base(figureToDecorate) { }
-
-        public override void Show(int lvl = 0)
-        {
-            Shower.DrawText(new String(' ', lvl * 2) + "ShadowDecorator {" + Environment.NewLine);
-            Shower.SetBrushForShow(System.Drawing.Brushes.Gray);
-            decoratedFigure.ShowShadow(lvl, Shower, dx);
-
-            Shower.SetBrushForShow(System.Drawing.Brushes.Black);
-            base.Show(lvl);
-
-            Shower.DrawText(new String(' ', lvl * 2) + "}" + Environment.NewLine);
-        }
-    }
-
-    public class BorderDecorator : ADecorator
-    {
-        public BorderDecorator(IFigure figureToDecorate) : base(figureToDecorate) { }
-
-        public override void Show(int lvl = 0)
-        {
-            Shower.DrawText(new String(' ', lvl * 2) + "BorderDecorator {" + Environment.NewLine);
-            Shower.SetBrushForShow(System.Drawing.Brushes.Red);
-            decoratedFigure.ShowBorder(lvl, Shower);
-
-            SetBrushForShow(System.Drawing.Brushes.Black);
-            base.Show(lvl);
-
-            Shower.DrawText(new String(' ', lvl * 2) + "}" + Environment.NewLine);
+            if (obj == null) return false;
+            return decoratedFigure.Equals(obj);
         }
     }
 }

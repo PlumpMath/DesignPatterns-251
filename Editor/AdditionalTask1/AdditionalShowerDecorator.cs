@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Editor
 {
@@ -44,6 +39,11 @@ namespace Editor
         public void EndShow()
         {
             decoratedShower.EndShow();
+        }
+
+        public void Clean()
+        {
+            decoratedShower.Clean();
         }
         #endregion
     }

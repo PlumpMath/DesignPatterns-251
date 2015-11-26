@@ -16,18 +16,21 @@ namespace Editor
             IFigure dt7 = new Triangle(new Point(-150, 50), new Point(-50, 50), new Point(-100, 150));
             CompositeFigure cf7 = new CompositeFigure(dc7, dr7, dt7);
 
+            AShower shower = new WindowShower(100.0, 100.0);
             User user = new User();
 
             user.AddFigure(dc7);
             user.AddFigure(dr7);
-            user.DecorateWithShadow(ref dt7);
             user.AddFigure(dt7);
-            user.AddFigure(cf7);
-            user.DelFigure(dr7);
-            user.AddFigure(dr7);
-            user.MakeComposite(dc7, dr7);
 
-            AShower shower = new WindowShower(100.0, 100.0);
+            //user.Show(shower);
+
+            user.DecorateWithShadow(2);
+            user.AddFigure(cf7);
+            user.DelFigure(cf7);
+            user.MakeComposite(0, 1, 2);
+            user.DecorateWithBorder(0);
+
             user.Show(shower);
 
             user.Undo(5);

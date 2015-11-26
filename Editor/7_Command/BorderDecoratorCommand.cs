@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace Editor
+﻿namespace Editor
 {
-    internal class ShadowDecoratorCommand : ACommand
+    internal class BorderDecoratorCommand : ACommand
     {
         private IFigure f;
         private CompositeFigure cf;
 
-        public ShadowDecoratorCommand(CompositeFigure figures, IFigure f)
+        public BorderDecoratorCommand(CompositeFigure figures, IFigure f)
         {
             this.f = f;
             this.cf = figures;
@@ -15,7 +13,7 @@ namespace Editor
 
         public override void Execute()
         {
-            IFigure tmp = new ShadowDecorator(f);
+            IFigure tmp = new BorderDecorator(f);
             cf.Replace(f, tmp);
         }
     }

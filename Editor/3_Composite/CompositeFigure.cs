@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Editor
 {
@@ -77,6 +74,14 @@ namespace Editor
             {
                 pf.SetShower(shower);
             }
+        }
+
+        internal IFigure Get(int ind)
+        {
+            if (ind < 0 || ind >= children.Count)
+                throw new IndexOutOfRangeException("Can't get elem by ind in CompositeFigure.Get");
+
+            return children[ind];
         }
 
         public override void MoveTo(Point x)
@@ -162,6 +167,14 @@ namespace Editor
         public void RemoveAllChilds()
         {
             children.RemoveRange(0, children.Count);
+        }
+        public void Replace(IFigure oldF, IFigure newF)
+        {
+            int i = children.FindIndex(x => x.Equals(oldF));
+            if (i < 0 || i >= children.Count)
+                throw new IndexOutOfRangeException("Can't find figure to CompositeFigure.Replace");
+
+            children[i] = newF;
         }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Editor
 {
@@ -82,7 +78,7 @@ namespace Editor
             Point p = obj as Point;
             if (p == null) return false;
 
-            if ((X-p.X)* (X - p.X) + (Y - p.Y) * (Y - p.Y) < EPSILON && this == p)
+            if ((X-p.X)* (X - p.X) + (Y - p.Y) * (Y - p.Y) < EPSILON)
                 return true;
             return false;
         }

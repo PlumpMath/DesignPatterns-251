@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="0_AdditionalClasses\PointTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="StagesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Editor\Editor.csproj">
