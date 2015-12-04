@@ -1,3 +1,5 @@
+using System;
+
 namespace Editor
 {
     public abstract class ADecorator : AFigure
@@ -10,6 +12,10 @@ namespace Editor
             decoratedFigure = figureToDecorate;
         }
 
+        public override IFigure Clone()
+        {
+            throw new Exception("Override ADecorator.Clone() first!");
+        }
         public override double Area() { return decoratedFigure.Area(); }
         public override void MoveOn(Point dx) { decoratedFigure.MoveOn(dx); }
         public override void MoveTo(Point x) { decoratedFigure.MoveTo(x); }

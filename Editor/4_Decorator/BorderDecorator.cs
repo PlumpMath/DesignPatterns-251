@@ -6,6 +6,11 @@ namespace Editor
     {
         public BorderDecorator(IFigure figureToDecorate) : base(figureToDecorate) { }
 
+        public override IFigure Clone()
+        {
+            return new BorderDecorator(decoratedFigure);
+        }
+
         public override void Show(int lvl = 0)
         {
             Shower.DrawText(new String(' ', lvl * 2) + "BorderDecorator {" + Environment.NewLine);

@@ -27,7 +27,7 @@ namespace Editor
             int neededLvl = _current - levels;
             if (neededLvl < 0 || neededLvl >= _current)
             {
-                throw new Exception("OLOLO");
+                throw new Exception("Wrong User.Redo(lvl)");
             }
 
             for (int i=0; i<neededLvl; i++)
@@ -41,7 +41,7 @@ namespace Editor
             int neededLvl = _current - levels;
             if (neededLvl < 0 || neededLvl >= _current)
             {
-                throw new Exception("OLOLO");
+                throw new Exception("Wrong User.Undo(lvl)");
             }
 
             for (int i = 0; i < neededLvl; i++)
@@ -55,6 +55,11 @@ namespace Editor
         internal void Show(AShower shower)
         {
             shower.Clean();
+
+            IFigure fc = figures.Clone();
+            fc.SetShower(shower);
+            fc.Show();
+            fc.EndShow();
 
             figures.SetShower(shower);
             figures.Show();

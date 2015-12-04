@@ -4,6 +4,11 @@ namespace Editor
 {
     public class RemoveLastPropertyDecorator : ADecorator
     {
+        public override IFigure Clone()
+        {
+            return new RemoveLastPropertyDecorator(decoratedFigure);
+        }
+
         public RemoveLastPropertyDecorator(IFigure figureToDecorate) : base(figureToDecorate)
         {
             Console.WriteLine("RemoveLastPropertyDecorator");

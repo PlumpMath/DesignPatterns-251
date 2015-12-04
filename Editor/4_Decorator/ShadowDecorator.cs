@@ -8,6 +8,11 @@ namespace Editor
 
         public ShadowDecorator(IFigure figureToDecorate) : base(figureToDecorate) { }
 
+        public override IFigure Clone()
+        {
+            return new ShadowDecorator(decoratedFigure);
+        }
+
         public override void Show(int lvl = 0)
         {
             Shower.DrawText(new String(' ', lvl * 2) + "ShadowDecorator {" + Environment.NewLine);
